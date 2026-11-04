@@ -114,25 +114,26 @@
     </section>
 
     <!-- AIDA 提供的能力 -->
-    <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="mb-12 text-2xl font-bold sm:text-[26px]">AIDA 提供的能力</h2>
-      <ul class="grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
-        <li>
+    <section id="capabilities" class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
+      <div class="bg-blob bg-blob-breathe left-1/2 top-8 h-44 w-44 -translate-x-1/2 bg-gradient-to-br from-accent-cyan via-accent-violet to-accent-amber sm:top-12 sm:h-64 sm:w-64 lg:top-16 lg:h-[380px] lg:w-[380px]" aria-hidden="true"></div>
+      <h2 class="relative mb-12 text-2xl font-bold sm:text-[26px]">AIDA 提供的能力</h2>
+      <ul class="relative grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <li class="reveal">
           <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-cyan to-accent-blue" aria-hidden="true"></span>
           <p class="mt-6 text-xl font-medium">AI 算力</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">提供 AI 模型訓練與驗證所需的運算資源，支援新創加速產品開發。</p>
         </li>
-        <li>
+        <li class="reveal">
           <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-violet to-accent-indigo" aria-hidden="true"></span>
           <p class="mt-6 text-xl font-medium">專利分析</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">協助新創進行專利佈局分析與智慧財產權規劃，強化技術產品的保護與價值。</p>
         </li>
-        <li>
+        <li class="reveal">
           <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-amber to-accent-red" aria-hidden="true"></span>
           <p class="mt-6 text-xl font-medium">財務會計</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">提供財務會計制度建置與日常諮詢，協助新創建立穩健的財務管理基礎。</p>
         </li>
-        <li>
+        <li class="reveal">
           <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-blue to-accent-violet" aria-hidden="true"></span>
           <p class="mt-6 text-xl font-medium">投資與上市顧問</p>
           <!-- TODO(法務確認): 涉及投資顧問之文案，上線前須經法務確認 -->
@@ -285,5 +286,30 @@
   </main>
 
   <!-- include:partials/footer.zh.html -->
+
+  <script>
+    // 「AIDA 提供的能力」捲動進場：漸進增強，JS 或 IntersectionObserver 不存在時內容維持原本可見狀態。
+    if ("IntersectionObserver" in window) {
+      document.body.classList.add("js-ready");
+      var revealItems = document.querySelectorAll("#capabilities .reveal");
+      revealItems.forEach(function (el, index) {
+        el.style.setProperty("--reveal-delay", index * 90 + "ms");
+      });
+      var revealObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.2, rootMargin: "0px 0px -60px 0px" },
+      );
+      revealItems.forEach(function (el) {
+        revealObserver.observe(el);
+      });
+    }
+  </script>
 </body>
 </html>

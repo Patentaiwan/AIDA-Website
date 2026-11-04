@@ -61,3 +61,55 @@
   background-clip: text;
   color: transparent;
 }
+
+/*
+ * 「AIDA 提供的能力」區塊的呼吸光暈：沿用 hero 的 .bg-blob 語彙，
+ * 用緩慢的縮放／位移暗示四項能力同屬一套資本端能力，而非各自獨立的卡片。
+ * 只用於這個區塊的一個 authored moment，不套用到其他區塊的進場效果。
+ */
+@keyframes blob-breathe {
+  0%,
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: scale(1.12) translateY(-12px);
+    opacity: 0.34;
+  }
+}
+
+.bg-blob-breathe {
+  animation: blob-breathe 11s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bg-blob-breathe {
+    animation: none;
+  }
+}
+
+/*
+ * 捲動進場效果：預設可見（無 JS 時不受影響），JS 就緒後才轉為「淡入＋上移」，
+ * 搭配 IntersectionObserver 依序觸發；reduced-motion 時維持可見、不做位移。
+ */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  body.js-ready .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  body.js-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
