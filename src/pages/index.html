@@ -61,12 +61,12 @@
 
   <main id="main">
     <!-- Hero -->
-    <section class="relative">
+    <section id="hero" class="relative">
       <div class="bg-blob h-[560px] w-[560px] -left-32 -top-40 bg-gradient-to-br from-accent-cyan to-accent-blue" aria-hidden="true"></div>
       <div class="bg-blob h-[520px] w-[520px] -top-24 right-[-120px] bg-gradient-to-br from-accent-violet to-accent-indigo" aria-hidden="true"></div>
 
       <div class="relative mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-36 sm:pt-28">
-        <h1 class="max-w-3xl text-[32px] font-bold leading-[1.2] sm:text-[44px]">
+        <h1 class="max-w-4xl text-[40px] font-bold leading-[1.1] sm:text-[64px]">
           把軍方真實需求，整理成新創能接下的「題目」
         </h1>
         <p class="mt-7 max-w-2xl text-[17px] leading-relaxed text-sub">
@@ -312,6 +312,45 @@
         revealObserver.observe(el);
       });
     }
+
+    // Hero 視差滾動：背景光暈隨捲動以比內容慢的速率位移，營造景深。
+    // 漸進增強：沒有 JS、IntersectionObserver 時光暈維持原本靜止位置；
+    // prefers-reduced-motion 時完全不啟用位移。
+    (function () {
+      var heroSection = document.getElementById("hero");
+      var heroBlobs = heroSection ? heroSection.querySelectorAll(".bg-blob") : [];
+      if (!heroSection || !heroBlobs.length) return;
+      if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+
+      var ticking = false;
+      var active = true;
+
+      function updateParallax() {
+        var progress = Math.max(0, -heroSection.getBoundingClientRect().top);
+        heroBlobs.forEach(function (el, index) {
+          var rate = index === 0 ? 0.12 : 0.2;
+          el.style.transform = "translateY(" + Math.min(progress * rate, 140) + "px)";
+        });
+        ticking = false;
+      }
+
+      function onScroll() {
+        if (!active || ticking) return;
+        ticking = true;
+        window.requestAnimationFrame(updateParallax);
+      }
+
+      if ("IntersectionObserver" in window) {
+        var parallaxObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            active = entry.isIntersecting;
+          });
+        });
+        parallaxObserver.observe(heroSection);
+      }
+
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
   </script>
 </body>
 </html>
