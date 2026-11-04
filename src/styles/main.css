@@ -41,19 +41,6 @@
   pointer-events: none;
 }
 
-/*
- * 三角光楔（SVG）：與 .bg-blob 融合使用的尖角造型，呼應參考站（SparkLabs Taiwan）
- * 在大區塊背景裡混合「柔和光暈＋三角元素」的做法。用 SVG 內建的
- * feGaussianBlur 而非 CSS clip-path + filter：後者會在裁切邊緣被硬裁掉，
- * 邊緣會是死板的直線而非融合的柔邊，不符合「融合」的需求。
- */
-.bg-shard {
-  position: absolute;
-  overflow: visible;
-  opacity: 0.5;
-  pointer-events: none;
-}
-
 .text-gradient-blue {
   background-image: linear-gradient(135deg, var(--color-accent-indigo), var(--color-accent-blue), var(--color-accent-cyan));
   -webkit-background-clip: text;
