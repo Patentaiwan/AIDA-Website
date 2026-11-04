@@ -1,0 +1,46 @@
+# 雛形：目前網站尚未有需要擋爬蟲的後台或私有路徑，全部放行。
+# 網域 https://aida.com 為 CLAUDE.md 暫定網域，正式網域確認後請同步更新本檔與 sitemap.xml。
+# 日後若新增會員後台、預約系統等非公開頁面，再補 Disallow 規則。
+
+User-agent: *
+Allow: /
+
+# 傳統搜尋引擎／答案引擎爬蟲
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# 生成式 AI 搜尋／答案引擎爬蟲（GEO：需放行才能被引用）
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://aida.com/sitemap.xml

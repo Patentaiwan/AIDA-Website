@@ -1,0 +1,14 @@
+# Node
+node_modules/
+
+# Build output（由 npm run build 產生，部署時交給 Cloudflare Pages 建置）
+dist/
+
+# Impeccable 執行期暫存檔（設定/設計檔仍需進版控）
+.impeccable/*
+!.impeccable/config.json
+!.impeccable/design.json
+
+# OS / editor
+.DS_Store
+Thumbs.db

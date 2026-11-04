@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  雛形：僅列出 CLAUDE.md「主要頁面 slug（定案）」中已定案的頁面。
+  題目／論壇主題／新聞／文章等子頁 slug 尚未定案或內容尚未提供，
+  等頁面實際建立、slug 確認後再補進來，不要先行假設。
+  網域 https://aida.com 為 CLAUDE.md 暫定網域，待確認可註冊後若變更，
+  此處與全站網址需一併更新。
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://aida.com/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/about/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/about/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/about/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/about/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/about/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/challenges/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/challenges/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/challenges/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/challenges/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/challenges/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/challenges/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/acceleration/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/acceleration/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/acceleration/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/acceleration/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/acceleration/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/acceleration/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/accounting/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/accounting/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/accounting/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/accounting/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/accounting/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/accounting/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/patent-ip/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/patent-ip/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/patent-ip/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/patent-ip/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/patent-ip/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/patent-ip/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/ai-computing/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/ai-computing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/ai-computing/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/ai-computing/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/ai-computing/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/ai-computing/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/investment-ipo/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/investment-ipo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/investment-ipo/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/investment-ipo/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/investment-ipo/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/investment-ipo/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/services/company-registration/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/company-registration/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/company-registration/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/services/company-registration/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/services/company-registration/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/services/company-registration/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/members/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/members/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/members/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/members/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/members/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/members/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/membership/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/membership/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/membership/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/membership/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/membership/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/membership/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/venues/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/venues/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/venues/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/venues/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/venues/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/venues/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/forum/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/forum/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/forum/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/forum/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/forum/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/forum/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/news/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/news/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/news/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/news/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/news/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/news/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/contact/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/contact/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/contact/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/contact/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/contact/" />
+  </url>
+
+  <url>
+    <loc>https://aida.com/privacy/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/privacy/" />
+  </url>
+  <url>
+    <loc>https://aida.com/en/privacy/</loc>
+    <lastmod>2026-11-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/privacy/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aida.com/en/privacy/" />
+  </url>
+
+</urlset>

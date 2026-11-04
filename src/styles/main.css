@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/*
+ * 設計 tokens（CSS variables）集中寫在這裡，對應首頁方向 C 定案的視覺世界
+ * （見 .impeccable/surfaces/src-pages-index-html.md 的 Direction contract）：
+ * 白底畫布、深墨藍導覽與文字、藍／靛紫／琥珀漸層點綴。
+ * 其他頁面與元件一律沿用這裡的變數，不要散落各處自訂色碼。
+ */
+@theme {
+  --color-ink: #0c1222;
+  --color-sub: #5b6472;
+  --color-line: #e8eaee;
+
+  --color-accent-blue: #2e52e8;
+  --color-accent-cyan: #38bdf8;
+  --color-accent-indigo: #4338ca;
+  --color-accent-violet: #8b5cf6;
+  --color-accent-amber: #f59e0b;
+  --color-accent-red: #ef4444;
+
+  --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-accent-indigo);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+/* 柔和模糊漸層光暈，用於首頁 hero 背景；裝飾性，不承載內容 */
+.bg-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.text-gradient-blue {
+  background-image: linear-gradient(135deg, var(--color-accent-indigo), var(--color-accent-blue), var(--color-accent-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-violet {
+  background-image: linear-gradient(135deg, var(--color-accent-violet), var(--color-accent-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-amber {
+  background-image: linear-gradient(135deg, var(--color-accent-amber), var(--color-accent-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
