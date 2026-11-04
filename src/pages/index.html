@@ -60,66 +60,68 @@
   <!-- include:partials/header.zh.html -->
 
   <main id="main">
-    <!-- Hero -->
-    <section id="hero" class="relative">
-      <div class="bg-blob h-[560px] w-[560px] -left-32 -top-40 bg-gradient-to-br from-accent-cyan to-accent-blue" aria-hidden="true"></div>
-      <div class="bg-blob h-[520px] w-[520px] -top-24 right-[-120px] bg-gradient-to-br from-accent-violet to-accent-indigo" aria-hidden="true"></div>
+    <!-- Hero：扁平滿版飽和藍色塊 + 巨大 wordmark，呼應參考站（canvas-inc.co）首屏純色衝擊力 -->
+    <section id="hero" class="hero-flat relative flex min-h-[90vh] flex-col justify-center overflow-hidden px-4 pt-20 sm:px-6">
+      <p class="absolute left-4 top-20 font-display text-xs uppercase tracking-[0.1em] text-white sm:left-6">AI DefTech Accelerator</p>
+      <p class="corner-index absolute bottom-8 right-4 text-white/90 sm:right-6">No. 01</p>
+      <h1 class="hero-wordmark skew-italic">AIDA</h1>
+      <p class="relative mt-6 max-w-2xl text-lg font-medium text-white sm:text-2xl">
+        把軍方真實需求，整理成新創能接下的「題目」
+      </p>
+      <p class="relative mt-3 max-w-xl text-sm leading-relaxed text-white">
+        AIDA 由挺立資本投資營運，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。
+      </p>
+      <p class="relative mt-2 text-xs text-white/90"><!-- TODO(主管確認): 以上定義句與服務對象說明待主管確認含義後正式上線 -->（示意文字，待主管確認）</p>
 
-      <div class="relative mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-36 sm:pt-28">
-        <h1 class="max-w-4xl text-[40px] font-bold leading-[1.1] sm:text-[64px]">
-          把軍方真實需求，整理成新創能接下的「題目」
-        </h1>
-        <p class="mt-7 max-w-2xl text-[17px] leading-relaxed text-sub">
-          AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。
-        </p>
-        <p class="mt-4 max-w-2xl text-[17px] leading-relaxed text-sub">
-          AIDA 服務三種對象：依題目投入軍工產品開發的新創團隊、提供供應鏈與研發資源的合作夥伴，以及歐洲、美國、日本等地的國際合作對象。
-        </p>
-        <p class="mt-3 text-xs text-sub"><!-- TODO(主管確認): 以上定義句與服務對象說明待主管確認含義後正式上線 -->（示意文字，待主管確認）</p>
-
-        <div class="mt-10 flex flex-wrap gap-3">
-          <a href="/contact/#startup" class="rounded-full bg-ink px-6 py-3 font-medium text-white transition hover:opacity-85">我是新創 →</a>
-          <a href="/contact/#partner" class="rounded-full border border-ink/15 px-6 py-3 font-medium transition hover:border-ink/40">合作夥伴 →</a>
-          <a href="/contact/#international" class="rounded-full border border-ink/15 px-6 py-3 font-medium transition hover:border-ink/40">國際合作 →</a>
-        </div>
-        <p class="mt-4 text-xs text-sub">三個入口皆導向聯絡我們，依角色分流至對應表單</p>
+      <div class="relative mt-8 flex flex-wrap gap-3 pb-16">
+        <a href="/contact/#startup" class="rounded-full bg-white px-6 py-3 font-medium text-accent-blue transition hover:opacity-90">我是新創 →</a>
+        <a href="/contact/#partner" class="rounded-full border border-white/40 px-6 py-3 font-medium text-white transition hover:border-white">合作夥伴 →</a>
+        <a href="/contact/#international" class="rounded-full border border-white/40 px-6 py-3 font-medium text-white transition hover:border-white">國際合作 →</a>
       </div>
     </section>
 
-    <!-- 需求→題目：大字塊宣言，重申首頁核心論述，用斜體大字＋手繪筆觸動畫營造科技、有活力的氛圍 -->
+    <!-- 轉場：AIDA 幾何 logo 單獨佔一屏，呼應參考站的標誌轉場；疊棋盤格像素溶解進場 -->
+    <section id="logoBeat" class="relative flex min-h-[55vh] items-center justify-center overflow-hidden bg-white">
+      <svg viewBox="0 0 159.46 51.35" fill="#0c1222" class="w-[60vw] max-w-[520px]" aria-hidden="true">
+        <polygon points="4.04,46.45 62.54,3.77 62.54,46.4 59.04,46.4 59.04,46.4 31.8,46.4 31.8,39.4 55.54,39.4 55.54,17.54 15.92,46.45" />
+        <polygon points="94.59,46.45 153.09,3.77 153.09,46.4 148.78,46.4 148.78,46.4 121.54,46.4 121.54,39.4 146.09,39.4 146.09,17.54 106.47,46.45" />
+        <rect x="69" y="6.45" width="7" height="35.74" />
+        <path d="M82.19 46.45 L82.19 6.45 L138.67 6.45 Z M89.19 14.16 L89.19 33.62 L116.67 14.16 Z" />
+      </svg>
+      <div id="pixelGrid" class="pixel-grid" aria-hidden="true"></div>
+    </section>
+
+    <!-- 需求變題目：大字塊宣言，重申首頁核心論述，描邊字捲動時由左至右填色，營造科技、有活力的氛圍 -->
     <section id="thesis-statement" class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-      <p class="reveal flex flex-wrap items-baseline gap-3 font-sans text-[44px] font-black leading-none tracking-tight sm:gap-5 sm:text-[72px] lg:text-[96px]">
-        <span class="skew-italic text-ink">需求</span>
-        <svg class="hand-stroke h-8 w-20 shrink-0 text-accent-blue sm:h-11 sm:w-28 lg:h-14 lg:w-36" viewBox="0 0 160 60" fill="none" aria-hidden="true">
-          <path d="M8 34 Q 70 8, 120 30 T 150 26" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
-          <path d="M130 12 L150 26 L128 40" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <span class="skew-italic text-gradient-blue">題目</span>
+      <p class="font-display text-xs uppercase tracking-[0.1em] text-sub">Purpose</p>
+      <p id="outlineTarget" class="outline-fill mt-6 font-black leading-[0.9]" style="font-size: clamp(56px, 11vw, 168px);">
+        <span class="base">需求變題目</span>
+        <span class="fill text-ink">需求變題目</span>
       </p>
-      <p class="relative mt-6 max-w-xl text-sm leading-relaxed text-sub"><!-- TODO(主管確認): 與 hero 定義句同一事項，待主管確認含義後正式上線 -->AIDA 把軍方真實需求，整理成新創能接下的題目——這是整個加速器運作的起點。</p>
+      <p class="relative mt-10 max-w-xl text-sm leading-relaxed text-sub"><!-- TODO(主管確認): 與 hero 定義句同一事項，待主管確認含義後正式上線 -->AIDA 把軍方真實需求，整理成新創能接下的題目——這是整個加速器運作的起點。</p>
     </section>
 
     <!-- 運作方式 -->
     <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="mb-12 text-[28px] font-bold sm:text-[36px]">運作方式</h2>
+      <h2 class="skew-italic mb-12 inline-block text-[28px] font-black sm:text-[36px]">運作方式</h2>
       <ol class="grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
         <li>
-          <p class="font-display text-gradient-blue text-[56px] font-light leading-none" aria-hidden="true">01</p>
+          <p class="text-[52px] font-black leading-none text-accent-blue" aria-hidden="true">01</p>
           <p class="mt-4 text-lg font-medium">軍方需求</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">由國防單位提出真實存在的作戰與裝備需求，作為後續題目規劃的起點。</p>
         </li>
         <li>
-          <p class="font-display text-gradient-blue text-[56px] font-light leading-none" aria-hidden="true">02</p>
+          <p class="text-[52px] font-black leading-none text-accent-blue" aria-hidden="true">02</p>
           <p class="mt-4 text-lg font-medium">整理成題目</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">AIDA 將需求轉化為可執行的題目說明，包含問題背景、技術要求與適合參與的團隊條件。</p>
         </li>
         <li>
-          <p class="font-display text-gradient-violet text-[56px] font-light leading-none" aria-hidden="true">03</p>
+          <p class="text-[52px] font-black leading-none text-accent-blue" aria-hidden="true">03</p>
           <p class="mt-4 text-lg font-medium">新創開發</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">新創團隊依題目方向進行產品開發，而非自行決定研發主題；AI、影像等技術背景的團隊也可依題目投入。</p>
         </li>
         <li>
-          <p class="font-display text-gradient-amber text-[56px] font-light leading-none" aria-hidden="true">04</p>
+          <p class="text-[52px] font-black leading-none text-accent-blue" aria-hidden="true">04</p>
           <p class="mt-4 text-lg font-medium">量產與出場</p>
           <p class="mt-2 text-sm leading-relaxed text-sub">產品驗證後進入量產階段，挺立資本協助新創於資本端規劃出場。</p>
         </li>
@@ -128,8 +130,7 @@
 
     <!-- AIDA 提供的能力 -->
     <section id="capabilities" class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <div class="bg-blob bg-blob-breathe left-1/2 top-8 h-44 w-44 -translate-x-1/2 bg-gradient-to-br from-accent-cyan via-accent-violet to-accent-amber sm:top-12 sm:h-64 sm:w-64 lg:top-16 lg:h-[380px] lg:w-[380px]" aria-hidden="true"></div>
-      <h2 class="relative mb-12 text-[28px] font-bold sm:text-[36px]">AIDA 提供的能力</h2>
+      <h2 class="skew-italic relative mb-12 inline-block text-[28px] font-black sm:text-[36px]">AIDA 提供的能力</h2>
       <ul class="relative grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
         <li class="reveal">
           <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-cyan to-accent-blue" aria-hidden="true"></span>
@@ -157,7 +158,7 @@
 
     <!-- 精選題目 -->
     <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="mb-8 text-[28px] font-bold sm:text-[36px]">精選題目</h2>
+      <h2 class="skew-italic mb-8 inline-block text-[28px] font-black sm:text-[36px]">精選題目</h2>
       <p class="max-w-2xl leading-relaxed text-sub">
         題目是 AIDA 把軍方實際需求整理成的問題分析，說明問題背景、需求與適合參與的團隊條件，新創依題目開發產品，而非自行決定研發方向。
       </p>
@@ -179,7 +180,7 @@
 
     <!-- 最新論壇文章與新聞 -->
     <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="mb-12 text-[28px] font-bold sm:text-[36px]">最新論壇文章與新聞</h2>
+      <h2 class="skew-italic mb-12 inline-block text-[28px] font-black sm:text-[36px]">最新論壇文章與新聞</h2>
       <div class="grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2">
         <div>
           <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-amber to-accent-red" aria-hidden="true"></span>
@@ -200,17 +201,17 @@
       </div>
     </section>
 
-    <!-- 場域：全幅深墨藍背景，與其他白底區塊形成節奏對比 -->
-    <section class="relative bg-ink">
+    <!-- 場域 -->
+    <section class="relative">
       <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-        <h2 class="mb-8 text-[28px] font-bold text-white sm:text-[36px]">場域</h2>
-        <p class="max-w-2xl leading-relaxed text-white/70">
+        <h2 class="skew-italic mb-8 inline-block text-[28px] font-black sm:text-[36px]">場域</h2>
+        <p class="max-w-2xl leading-relaxed text-sub">
           AIDA 的活動與課程主要在兩處場域進行：台中會議中心提供會議室與上課空間，並作為公司登記地址；升暘劇場則用於課程與論壇活動。場地使用採預約方式。
         </p>
 
-        <h3 class="mt-14 text-lg font-semibold text-white">台中會議中心</h3>
-        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-white/70"><!-- TODO(主管確認): 完整地址待補 -->台中會議中心為公司登記地址，提供會議室、小型教室與大型會議室，可供上課與對外洽談使用。</p>
-        <div class="mt-8 grid grid-cols-1 gap-8 border-t border-white/15 pt-8 sm:grid-cols-3">
+        <h3 class="mt-14 text-lg font-semibold">台中會議中心</h3>
+        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-sub"><!-- TODO(主管確認): 完整地址待補 -->台中會議中心為公司登記地址，提供會議室、小型教室與大型會議室，可供上課與對外洽談使用。</p>
+        <div class="mt-8 grid grid-cols-1 gap-8 border-t border-line pt-8 sm:grid-cols-3">
           <figure>
             <img
               src="/assets/images/venues/taichung-center-pantry.jpg"
@@ -220,7 +221,7 @@
               width="1376"
               height="768"
             />
-            <figcaption class="mt-3 text-sm text-white/60">茶水吧檯區</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">茶水吧檯區</figcaption>
           </figure>
           <figure>
             <img
@@ -231,7 +232,7 @@
               width="1376"
               height="768"
             />
-            <figcaption class="mt-3 text-sm text-white/60">小型會議室</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">小型會議室</figcaption>
           </figure>
           <figure>
             <img
@@ -242,13 +243,13 @@
               width="1264"
               height="848"
             />
-            <figcaption class="mt-3 text-sm text-white/60">大型會議室</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">大型會議室</figcaption>
           </figure>
         </div>
 
-        <h3 class="mt-14 text-lg font-semibold text-white">升暘劇場</h3>
-        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-white/70">升暘劇場用於課程與論壇活動，不作為公司登記地址。</p>
-        <div class="mt-8 grid grid-cols-1 gap-12 border-t border-white/15 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+        <h3 class="mt-14 text-lg font-semibold">升暘劇場</h3>
+        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-sub">升暘劇場用於課程與論壇活動，不作為公司登記地址。</p>
+        <div class="mt-8 grid grid-cols-1 gap-12 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
           <figure>
             <img
               src="/assets/images/venues/sunyoung-theater-exterior.jpg"
@@ -258,7 +259,7 @@
               width="1108"
               height="1477"
             />
-            <figcaption class="mt-3 text-sm text-white/60">升暘劇場外觀</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">升暘劇場外觀</figcaption>
           </figure>
           <figure>
             <img
@@ -269,7 +270,7 @@
               width="1108"
               height="1477"
             />
-            <figcaption class="mt-3 text-sm text-white/60">升暘劇場室內，可供上課與活動使用</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">升暘劇場室內，可供上課與活動使用</figcaption>
           </figure>
           <figure>
             <img
@@ -280,7 +281,7 @@
               width="1108"
               height="1477"
             />
-            <figcaption class="mt-3 text-sm text-white/60">升暘聚場戶外涼亭座位區</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">升暘聚場戶外涼亭座位區</figcaption>
           </figure>
           <figure>
             <img
@@ -291,11 +292,11 @@
               width="1108"
               height="1477"
             />
-            <figcaption class="mt-3 text-sm text-white/60">升暘聚場庭院步道</figcaption>
+            <figcaption class="mt-3 text-sm text-sub">升暘聚場庭院步道</figcaption>
           </figure>
         </div>
 
-        <a href="/venues/" class="mt-10 inline-block font-medium text-accent-cyan hover:text-white hover:underline">了解場域資訊 →</a>
+        <a href="/venues/" class="mt-10 inline-block font-medium text-accent-blue hover:underline">了解場域資訊 →</a>
       </div>
     </section>
   </main>
@@ -326,68 +327,55 @@
       });
     }
 
-    // Hero 視差滾動：背景光暈隨捲動以比內容慢的速率位移，營造景深。
-    // 漸進增強：沒有 JS、IntersectionObserver 時光暈維持原本靜止位置；
-    // prefers-reduced-motion 時完全不啟用位移。
+    // Logo 轉場的像素溶解：產生棋盤格方塊，捲動進入畫面時隨機時間差「溶解」露出 logo。
+    // 漸進增強：沒有 JS 時 pixelGrid 容器是空的，直接看到 logo，不影響內容。
     (function () {
-      var heroSection = document.getElementById("hero");
-      var heroBlobs = heroSection ? heroSection.querySelectorAll(".bg-blob") : [];
-      if (!heroSection || !heroBlobs.length) return;
-      if (!window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
-
-      var ticking = false;
-      var active = true;
-
-      function updateParallax() {
-        var progress = Math.max(0, -heroSection.getBoundingClientRect().top);
-        heroBlobs.forEach(function (el, index) {
-          var rate = index === 0 ? 0.35 : 0.55;
-          el.style.transform = "translateY(" + Math.min(progress * rate, 420) + "px)";
-        });
-        ticking = false;
+      var grid = document.getElementById("pixelGrid");
+      if (!grid) return;
+      for (var i = 0; i < 72; i++) {
+        var cell = document.createElement("span");
+        cell.style.setProperty("--d", Math.floor(Math.random() * 300) + "ms");
+        grid.appendChild(cell);
       }
-
-      function onScroll() {
-        if (!active || ticking) return;
-        ticking = true;
-        window.requestAnimationFrame(updateParallax);
-      }
-
       if ("IntersectionObserver" in window) {
-        var parallaxObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            active = entry.isIntersecting;
-          });
-        });
-        parallaxObserver.observe(heroSection);
-      }
-
-      window.addEventListener("scroll", onScroll, { passive: true });
-    })();
-
-    // 「需求→題目」大字塊宣言：捲動進場 + 手繪箭頭筆觸動畫。
-    // 漸進增強：沒有 JS 時文字與箭頭直接以完成狀態顯示（CSS 預設值）。
-    if ("IntersectionObserver" in window) {
-      var thesisSection = document.getElementById("thesis-statement");
-      if (thesisSection) {
-        document.body.classList.add("js-ready");
-        var thesisText = thesisSection.querySelector(".reveal");
-        var thesisStroke = thesisSection.querySelector(".hand-stroke");
-        var thesisObserver = new IntersectionObserver(
+        var logoObserver = new IntersectionObserver(
           function (entries) {
             entries.forEach(function (entry) {
               if (entry.isIntersecting) {
-                if (thesisText) thesisText.classList.add("is-visible");
-                if (thesisStroke) thesisStroke.classList.add("is-visible");
-                thesisObserver.unobserve(entry.target);
+                grid.classList.add("is-visible");
+                logoObserver.unobserve(entry.target);
               }
             });
           },
           { threshold: 0.4 },
         );
-        thesisObserver.observe(thesisSection);
+        logoObserver.observe(document.getElementById("logoBeat"));
+      } else {
+        grid.classList.add("is-visible");
       }
-    }
+    })();
+
+    // 「需求變題目」大字塊宣言：描邊字隨捲動由左至右填色。
+    // 漸進增強：沒有 JS 時維持 CSS 預設（.fill 的 clip-path 初始值會被 reduced-motion
+    // 以外的情況下擋住，所以同時提供一個無 JS 的保底全填色 class）。
+    (function () {
+      var target = document.getElementById("outlineTarget");
+      if (!target) return;
+      var fillEl = target.querySelector(".fill");
+      if (!fillEl) return;
+
+      function updateFill() {
+        var rect = target.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var progress = (vh * 0.85 - rect.top) / (rect.height + vh * 0.5);
+        progress = Math.max(0, Math.min(1, progress));
+        fillEl.style.clipPath = "inset(0 " + (100 - progress * 100) + "% 0 0)";
+      }
+
+      window.addEventListener("scroll", updateFill, { passive: true });
+      window.addEventListener("resize", updateFill);
+      updateFill();
+    })();
   </script>
 </body>
 </html>

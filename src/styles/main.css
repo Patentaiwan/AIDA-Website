@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 /*
- * 設計 tokens（CSS variables）集中寫在這裡，對應首頁方向 C 定案的視覺世界
+ * 設計 tokens（CSS variables）集中寫在這裡，對應首頁方向 D 定案的視覺世界
  * （見 .impeccable/surfaces/src-pages-index-html.md 的 Direction contract）：
- * 白底畫布、深墨藍導覽與文字、藍／靛紫／琥珀漸層點綴。
+ * 白底為主的畫布、深墨藍導覽、單一飽和藍做滿版色塊與強調色，
+ * 搭配斜體大字、描邊填色動畫與像素溶解轉場。
  * 其他頁面與元件一律沿用這裡的變數，不要散落各處自訂色碼。
  */
 @theme {
@@ -32,87 +33,107 @@
   outline-offset: 2px;
 }
 
-/* 柔和模糊漸層光暈，用於首頁 hero 背景；裝飾性，不承載內容 */
-.bg-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.text-gradient-blue {
-  background-image: linear-gradient(135deg, var(--color-accent-indigo), var(--color-accent-blue), var(--color-accent-cyan));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.text-gradient-violet {
-  background-image: linear-gradient(135deg, var(--color-accent-violet), var(--color-accent-blue));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.text-gradient-amber {
-  background-image: linear-gradient(135deg, var(--color-accent-amber), var(--color-accent-red));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 /*
- * 大字塊宣言區塊（#thesis-statement）用的手法：斜體傾斜 + 手繪筆觸動畫，
- * 營造「科技、有活力」的氛圍。中文字沒有義大利體，用 skewX 做出傾斜效果；
- * 手繪箭頭用 stroke-dasharray 做出捲動時「畫出來」的塗鴉筆觸動畫。
+ * 斜體傾斜：中文字沒有義大利體，用 skewX 做出傾斜效果，
+ * 用於大字標題與 wordmark，營造「科技、有活力」的氛圍。
  */
 .skew-italic {
   display: inline-block;
   transform: skewX(-6deg);
 }
 
-.hand-stroke path {
-  stroke-dasharray: 320;
-  stroke-dashoffset: 320;
-  transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1);
+/*
+ * Hero：扁平滿版飽和藍色塊（不是漸層光暈），文字用 vw 單位撐滿視窗寬度，
+ * 呼應使用者指定的參考站（canvas-inc.co）首屏純色衝擊力。
+ */
+.hero-flat {
+  background: var(--color-accent-blue);
 }
 
-.hand-stroke.is-visible path {
-  stroke-dashoffset: 0;
+.hero-wordmark {
+  font-weight: 900;
+  font-size: 18vw;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+@media (min-width: 640px) {
+  .hero-wordmark {
+    font-size: 22vw;
+  }
+}
+
+.corner-index {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+}
+
+/*
+ * logo-only 轉場：巨大 logo 單獨佔一屏，呼應參考站的標誌轉場手法；
+ * 疊一層棋盤格方塊做像素溶解進場，呼應參考站的故障／像素化手法。
+ * 純裝飾用途，不承載內容；JS 不存在時方塊預設不渲染，不影響可讀性。
+ */
+.pixel-grid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  pointer-events: none;
+}
+
+.pixel-grid span {
+  background: var(--color-accent-blue);
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+  transition-delay: var(--d, 0ms);
+}
+
+.pixel-grid.is-visible span {
+  opacity: 0;
+  transform: scale(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hand-stroke path {
+  .pixel-grid span {
     transition: none;
-    stroke-dashoffset: 0;
   }
 }
 
 /*
- * 「AIDA 提供的能力」區塊的呼吸光暈：沿用 hero 的 .bg-blob 語彙，
- * 用緩慢的縮放／位移暗示四項能力同屬一套資本端能力，而非各自獨立的卡片。
- * 只用於這個區塊的一個 authored moment，不套用到其他區塊的進場效果。
+ * 描邊填色大字：先是空心字，捲動時由左至右「填滿」，呼應參考站的
+ * 標題填色動畫手法。base 層的描邊用淺灰，fill 層用實色，兩者要有
+ * 明顯對比，否則填色過程看不出來。
  */
-@keyframes blob-breathe {
-  0%,
-  100% {
-    transform: scale(1) translateY(0);
-    opacity: 0.22;
-  }
-  50% {
-    transform: scale(1.12) translateY(-12px);
-    opacity: 0.34;
-  }
+.outline-fill {
+  position: relative;
+  display: inline-block;
 }
 
-.bg-blob-breathe {
-  animation: blob-breathe 11s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+.outline-fill .base {
+  -webkit-text-stroke: 2px #c7cbd6;
+  color: transparent;
+}
+
+.outline-fill .fill {
+  position: absolute;
+  inset: 0;
+  color: currentColor;
+  /* 預設全填滿（無 JS 時保證內容可見）；JS 就緒後在 updateFill() 裡依捲動位置覆寫 clip-path。 */
+  clip-path: inset(0 0 0 0);
+  -webkit-text-stroke: 0;
+  transition: clip-path 0.2s linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bg-blob-breathe {
-    animation: none;
+  .outline-fill .fill {
+    clip-path: inset(0 0 0 0) !important;
+    transition: none;
   }
 }
 
