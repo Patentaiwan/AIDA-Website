@@ -46,7 +46,7 @@
           "src/pages/index.html"
         ],
         "createdAt": "2026-11-04T05:10:39.172Z",
-        "reason": "false positive: visually confirmed ~40px gap (pt-10/pt-8) between border-top and grid children at 1440px, screenshot-verified 2026-11-04"
+        "reason": "visually verified: the 場域 section wraps its full-bleed bg-ink background in an outer <section>, with padding (py-24/px-4) applied on the inner content div one level deeper; detector flags the outer section as having no inset because it checks the section's own box, not its child's padding. Screenshots at 1440px and 375px confirm generous padding around all content."
       },
       {
         "rule": "flat-type-hierarchy",
