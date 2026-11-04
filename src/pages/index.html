@@ -86,6 +86,19 @@
       </div>
     </section>
 
+    <!-- 需求→題目：大字塊宣言，重申首頁核心論述，用斜體大字＋手繪筆觸動畫營造科技、有活力的氛圍 -->
+    <section id="thesis-statement" class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <p class="reveal flex flex-wrap items-baseline gap-3 font-sans text-[44px] font-black leading-none tracking-tight sm:gap-5 sm:text-[72px] lg:text-[96px]">
+        <span class="skew-italic text-ink">需求</span>
+        <svg class="hand-stroke h-8 w-20 shrink-0 text-accent-blue sm:h-11 sm:w-28 lg:h-14 lg:w-36" viewBox="0 0 160 60" fill="none" aria-hidden="true">
+          <path d="M8 34 Q 70 8, 120 30 T 150 26" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+          <path d="M130 12 L150 26 L128 40" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span class="skew-italic text-gradient-blue">題目</span>
+      </p>
+      <p class="relative mt-6 max-w-xl text-sm leading-relaxed text-sub"><!-- TODO(主管確認): 與 hero 定義句同一事項，待主管確認含義後正式上線 -->AIDA 把軍方真實需求，整理成新創能接下的題目——這是整個加速器運作的起點。</p>
+    </section>
+
     <!-- 運作方式 -->
     <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
       <h2 class="mb-12 text-[28px] font-bold sm:text-[36px]">運作方式</h2>
@@ -328,8 +341,8 @@
       function updateParallax() {
         var progress = Math.max(0, -heroSection.getBoundingClientRect().top);
         heroBlobs.forEach(function (el, index) {
-          var rate = index === 0 ? 0.12 : 0.2;
-          el.style.transform = "translateY(" + Math.min(progress * rate, 140) + "px)";
+          var rate = index === 0 ? 0.35 : 0.55;
+          el.style.transform = "translateY(" + Math.min(progress * rate, 420) + "px)";
         });
         ticking = false;
       }
@@ -351,6 +364,30 @@
 
       window.addEventListener("scroll", onScroll, { passive: true });
     })();
+
+    // 「需求→題目」大字塊宣言：捲動進場 + 手繪箭頭筆觸動畫。
+    // 漸進增強：沒有 JS 時文字與箭頭直接以完成狀態顯示（CSS 預設值）。
+    if ("IntersectionObserver" in window) {
+      var thesisSection = document.getElementById("thesis-statement");
+      if (thesisSection) {
+        document.body.classList.add("js-ready");
+        var thesisText = thesisSection.querySelector(".reveal");
+        var thesisStroke = thesisSection.querySelector(".hand-stroke");
+        var thesisObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                if (thesisText) thesisText.classList.add("is-visible");
+                if (thesisStroke) thesisStroke.classList.add("is-visible");
+                thesisObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.4 },
+        );
+        thesisObserver.observe(thesisSection);
+      }
+    }
   </script>
 </body>
 </html>

@@ -63,6 +63,33 @@
 }
 
 /*
+ * 大字塊宣言區塊（#thesis-statement）用的手法：斜體傾斜 + 手繪筆觸動畫，
+ * 營造「科技、有活力」的氛圍。中文字沒有義大利體，用 skewX 做出傾斜效果；
+ * 手繪箭頭用 stroke-dasharray 做出捲動時「畫出來」的塗鴉筆觸動畫。
+ */
+.skew-italic {
+  display: inline-block;
+  transform: skewX(-6deg);
+}
+
+.hand-stroke path {
+  stroke-dasharray: 320;
+  stroke-dashoffset: 320;
+  transition: stroke-dashoffset 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hand-stroke.is-visible path {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hand-stroke path {
+    transition: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/*
  * 「AIDA 提供的能力」區塊的呼吸光暈：沿用 hero 的 .bg-blob 語彙，
  * 用緩慢的縮放／位移暗示四項能力同屬一套資本端能力，而非各自獨立的卡片。
  * 只用於這個區塊的一個 authored moment，不套用到其他區塊的進場效果。
