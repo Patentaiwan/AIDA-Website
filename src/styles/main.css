@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 /*
- * 設計 tokens（CSS variables）集中寫在這裡，對應首頁橘／黑／白配色方向
- * （見 .impeccable/surfaces/src-pages-index-html.md 的 Direction contract）：
+ * 設計 tokens（CSS variables）集中寫在這裡，對應首頁橘／黑／白配色方向：
  * 白底為主的畫布、深墨黑導覽與內文、單一飽和橘做強調色與滿版色塊，
  * 搭配斜體大字、描邊填色動畫與像素溶解轉場。
  * 其他頁面與元件一律沿用這裡的變數，不要散落各處自訂色碼。
