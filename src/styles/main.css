@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 /*
- * 設計 tokens（CSS variables）集中寫在這裡，對應首頁方向 D 定案的視覺世界
+ * 設計 tokens（CSS variables）集中寫在這裡，對應首頁橘／黑／白配色方向
  * （見 .impeccable/surfaces/src-pages-index-html.md 的 Direction contract）：
- * 白底為主的畫布、深墨藍導覽、單一飽和藍做滿版色塊與強調色，
+ * 白底為主的畫布、深墨黑導覽與內文、單一飽和橘做強調色與滿版色塊，
  * 搭配斜體大字、描邊填色動畫與像素溶解轉場。
  * 其他頁面與元件一律沿用這裡的變數，不要散落各處自訂色碼。
  */
@@ -12,24 +12,19 @@
   --color-sub: #5b6472;
   --color-line: #e8eaee;
 
-  --color-accent-blue: #2e52e8;
-  --color-accent-cyan: #38bdf8;
-  --color-accent-indigo: #4338ca;
-  --color-accent-violet: #8b5cf6;
-  --color-accent-amber: #f59e0b;
-  --color-accent-red: #ef4444;
+  --color-accent-orange: #c2410c;
 
   --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
 }
 
 ::selection {
-  background: var(--color-accent-indigo);
+  background: var(--color-accent-orange);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent-blue);
+  outline: 2px solid var(--color-accent-orange);
   outline-offset: 2px;
 }
 
@@ -43,37 +38,9 @@
 }
 
 /*
- * Hero：扁平滿版飽和藍色塊（不是漸層光暈），文字用 vw 單位撐滿視窗寬度，
- * 呼應使用者指定的參考站（canvas-inc.co）首屏純色衝擊力。
- */
-.hero-flat {
-  background: var(--color-accent-blue);
-}
-
-.hero-wordmark {
-  font-weight: 900;
-  font-size: 18vw;
-  line-height: 0.85;
-  letter-spacing: -0.03em;
-  color: #fff;
-}
-
-@media (min-width: 640px) {
-  .hero-wordmark {
-    font-size: 22vw;
-  }
-}
-
-.corner-index {
-  font-family: var(--font-display);
-  font-size: 13px;
-  letter-spacing: 0.08em;
-}
-
-/*
- * logo-only 轉場：巨大 logo 單獨佔一屏，呼應參考站的標誌轉場手法；
- * 疊一層棋盤格方塊做像素溶解進場，呼應參考站的故障／像素化手法。
- * 純裝飾用途，不承載內容；JS 不存在時方塊預設不渲染，不影響可讀性。
+ * 轉場：一片像素方塊做像素溶解效果，捲動進入畫面時隨機時間差消散，
+ * 作為 hero 與下方內容之間的裝飾性過場。純裝飾用途，不承載內容；
+ * JS 不存在時方塊預設不渲染，不影響可讀性。
  */
 .pixel-grid {
   position: absolute;
@@ -85,7 +52,7 @@
 }
 
 .pixel-grid span {
-  background: var(--color-accent-blue);
+  background: var(--color-accent-orange);
   opacity: 1;
   transform: scale(1);
   transition:
