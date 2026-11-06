@@ -48,6 +48,16 @@ async function expandIncludes(html, from, depth = 0) {
   return parts.join('');
 }
 
+// 部署在子路徑時（例如 GitHub Pages 的 /AIDA-Website/），設定環境變數 BASE_PATH=/AIDA-Website，
+// 會把 HTML 裡以 / 開頭的 href、src、srcset、imagesrcset 加上前綴。未設定時不做任何改動。
+// 完整網址（https://…，例如 canonical、og:image）不受影響。
+const BASE_PATH = (process.env.BASE_PATH || '').replace(/\/+$/, '');
+function withBasePath(html) {
+  if (!BASE_PATH) return html;
+  return html.replace(/\b(href|src|srcset|imagesrcset)="([^"]*)"/g, (_m, attr, value) =>
+    `${attr}="${value.replace(/(^|,\s*)\/(?!\/)/g, `$1${BASE_PATH}/`)}"`);
+}
+
 async function build() {
   const started = Date.now();
   // 只清掉頁面與根目錄檔案，保留 dist/assets/css（由 Tailwind CLI 產生）
@@ -57,7 +67,7 @@ async function build() {
   for (const file of pages) {
     const rel = path.relative(PAGES, file);
     const out = path.join(DIST, rel);
-    const html = await expandIncludes(await fs.readFile(file, 'utf8'), file);
+    const html = withBasePath(await expandIncludes(await fs.readFile(file, 'utf8'), file));
     await fs.mkdir(path.dirname(out), { recursive: true });
     await fs.writeFile(out, html);
   }

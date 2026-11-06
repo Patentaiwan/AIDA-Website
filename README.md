@@ -20,6 +20,8 @@ npm run dev:pages    # 監看並組裝頁面
 
 Cloudflare Pages：Build command `npm run build`，Build output directory `dist`。
 
+GitHub Pages：推送到 `main` 時由 `.github/workflows/pages.yml` 自動建置並發布（需在 Settings → Pages 把 Source 設為「GitHub Actions」）。網站位於子路徑 `/AIDA-Website/`，建置時以環境變數 `BASE_PATH` 自動替所有站內路徑加上前綴。
+
 ## 結構
 
 ```
