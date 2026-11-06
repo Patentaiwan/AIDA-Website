@@ -1,17 +1,18 @@
 {
-  "name": "aida-website",
-  "version": "0.1.0",
+  "name": "aida-site",
   "private": true,
-  "description": "AIDA（AI DefTech Accelerator）官方網站：純 HTML + Tailwind CSS 靜態站",
+  "version": "0.1.0",
+  "description": "AIDA（AI DefTech Accelerator）官網：純 HTML + Tailwind CSS v4 靜態網站",
+  "type": "module",
   "scripts": {
-    "build:css": "tailwindcss -i ./src/styles/main.css -o ./dist/assets/css/main.css --minify",
-    "build:pages": "node scripts/build-pages.mjs",
     "build": "npm run build:pages && npm run build:css",
-    "dev:css": "tailwindcss -i ./src/styles/main.css -o ./dist/assets/css/main.css --watch",
-    "dev:pages": "node scripts/build-pages.mjs --watch"
+    "build:pages": "node scripts/build-pages.mjs",
+    "build:css": "tailwindcss -i src/styles/main.css -o dist/assets/css/main.css --minify",
+    "dev:pages": "node scripts/build-pages.mjs --watch",
+    "dev:css": "tailwindcss -i src/styles/main.css -o dist/assets/css/main.css --watch"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.0",
-    "tailwindcss": "^4.0.0"
+    "@tailwindcss/cli": "4.1.14",
+    "tailwindcss": "4.1.14"
   }
 }

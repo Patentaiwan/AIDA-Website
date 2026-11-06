@@ -1,385 +1,657 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AIDA｜把軍方需求整理成題目的 AI 國防科技加速器</title>
-  <meta name="description" content="AIDA（AI DefTech Accelerator）由挺立資本投資營運，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。" />
-  <link rel="canonical" href="https://aida.com/" />
-  <link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/" />
-  <link rel="alternate" hreflang="en" href="https://aida.com/en/" />
-  <link rel="alternate" hreflang="x-default" href="https://aida.com/" />
+<!-- include:partials/head-common.zh.html -->
+<title>AIDA AI DefTech Accelerator｜AI 國防科技加速器</title>
+<meta name="description" content="AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方與海外實際需求整理成題目，輔導新創開發市場需要的軍工產品。">
+<!-- TODO: 正式上線前移除 noindex（預覽站 *.pages.dev 是公開的，上線前避免被收錄） -->
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aida.com/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aida.com/">
+<link rel="alternate" hreflang="x-default" href="https://aida.com/">
+<!-- TODO: 英文版 /en/ 上線後加入：<link rel="alternate" hreflang="en" href="https://aida.com/en/"> -->
 
-  <!-- 尚未正式上線，避免預覽網址被索引；正式上線時移除（見 CLAUDE.md「Cloudflare Pages」） -->
-  <meta name="robots" content="noindex" />
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AIDA">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://aida.com/">
+<meta property="og:title" content="AIDA AI DefTech Accelerator｜AI 國防科技加速器">
+<meta property="og:description" content="以軍方真實需求為題目，輔導新創開發市場真正需要的軍工產品。">
+<meta property="og:image" content="https://aida.com/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AIDA AI 國防科技加速器">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AIDA AI DefTech Accelerator｜AI 國防科技加速器">
+<meta name="twitter:description" content="以軍方真實需求為題目，輔導新創開發市場真正需要的軍工產品。">
+<meta name="twitter:image" content="https://aida.com/assets/images/og-image.jpg">
 
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="AIDA" />
-  <meta property="og:title" content="AIDA｜把軍方需求整理成題目的 AI 國防科技加速器" />
-  <meta property="og:description" content="AIDA（AI DefTech Accelerator）由挺立資本投資營運，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。" />
-  <meta property="og:url" content="https://aida.com/" />
-  <meta property="og:locale" content="zh_TW" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <!-- TODO(主管提供): og:image 待有正式品牌圖片後補上 -->
+<link rel="preload" as="image" href="/assets/images/hero-quadruped.webp" imagesrcset="/assets/images/hero-quadruped-sm.webp 1000w, /assets/images/hero-quadruped.webp 2000w" imagesizes="(max-width: 1100px) 100vw, 76vw" fetchpriority="high">
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="AIDA｜把軍方需求整理成題目的 AI 國防科技加速器" />
-  <meta name="twitter:description" content="AIDA（AI DefTech Accelerator）由挺立資本投資營運，將軍方實際需求整理成題目，輔導新創開發市場需要的軍工產品。" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="/assets/css/main.css" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AIDA",
-    "alternateName": "AI DefTech Accelerator",
-    "url": "https://aida.com/",
-    "description": "AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AIDA",
-    "url": "https://aida.com/",
-    "inLanguage": "zh-Hant-TW"
-  }
-  </script>
-</head>
-<body class="min-h-screen overflow-x-hidden bg-white font-sans text-ink">
-  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-4 focus:py-2 focus:text-white">
-    跳至主要內容
-  </a>
-
-  <!-- include:partials/header.zh.html -->
-
-  <main id="main">
-    <!-- Hero：左圖右文，圖片上下滿版；區塊固定 600px 高（手機維持直式堆疊，不硬塞進 600px） -->
-    <section id="hero" class="relative flex flex-col overflow-hidden bg-white sm:h-[600px] sm:flex-row">
-      <div class="relative h-64 w-full sm:h-full sm:w-1/2">
-        <img
-          src="/assets/images/hero/hero-forum.jpg"
-          alt="AIDA 論壇活動現場，講者於滿座的劇場向與會者分享研究歷程"
-          class="absolute inset-0 h-full w-full object-cover"
-          loading="eager"
-          width="2000"
-          height="1125"
-        />
-      </div>
-      <div class="relative flex w-full flex-col justify-center px-4 py-10 sm:w-1/2 sm:px-10 sm:py-0 lg:px-16">
-        <p class="font-display text-xs uppercase tracking-[0.1em] text-accent-orange">AI DefTech Accelerator</p>
-        <h1 class="skew-italic mt-4 text-[36px] font-black leading-[1.05] text-ink sm:text-[48px] lg:text-[56px]">
-          把軍方真實需求，整理成新創能接下的「題目」
-        </h1>
-        <p class="relative mt-6 max-w-md text-base leading-relaxed text-sub sm:text-lg">
-          AIDA 由挺立資本投資營運，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。
-        </p>
-        <p class="relative mt-2 text-xs text-sub"><!-- TODO(主管確認): 以上定義句與服務對象說明待主管確認含義後正式上線 -->（示意文字，待主管確認）</p>
-
-        <div class="relative mt-8 flex flex-wrap gap-3">
-          <a href="/contact/#startup" class="rounded-full bg-accent-orange px-6 py-3 font-medium text-white transition hover:opacity-90">我是新創 →</a>
-          <a href="/contact/#partner" class="rounded-full border border-ink/20 px-6 py-3 font-medium text-ink transition hover:border-ink">合作夥伴 →</a>
-          <a href="/contact/#international" class="rounded-full border border-ink/20 px-6 py-3 font-medium text-ink transition hover:border-ink">國際合作 →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 轉場：像素方塊溶解效果，作為 hero 與下方內容之間的過場 -->
-    <section id="logoBeat" class="relative flex min-h-[20vh] items-center justify-center overflow-hidden bg-white sm:min-h-[25vh]">
-      <div id="pixelGrid" class="pixel-grid" aria-hidden="true"></div>
-    </section>
-
-    <!-- 需求變題目：大字塊宣言，重申首頁核心論述，描邊字捲動時由左至右填色，營造科技、有活力的氛圍 -->
-    <section id="thesis-statement" class="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
-      <p class="font-display text-xs uppercase tracking-[0.1em] text-sub">Purpose</p>
-      <p id="outlineTarget" class="outline-fill mt-6 font-black leading-[0.9]" style="font-size: clamp(56px, 11vw, 168px);">
-        <span class="base">需求變題目</span>
-        <span class="fill text-ink">需求變題目</span>
-      </p>
-      <p class="relative mt-10 max-w-xl text-sm leading-relaxed text-sub"><!-- TODO(主管確認): 與 hero 定義句同一事項，待主管確認含義後正式上線 -->AIDA 把軍方真實需求，整理成新創能接下的題目——這是整個加速器運作的起點。</p>
-    </section>
-
-    <!-- 運作方式 -->
-    <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="skew-italic mb-12 inline-block text-[28px] font-black sm:text-[36px]">運作方式</h2>
-      <ol class="grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
-        <li>
-          <p class="text-[52px] font-black leading-none text-accent-orange" aria-hidden="true">01</p>
-          <p class="mt-4 text-lg font-medium">軍方需求</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">由國防單位提出真實存在的作戰與裝備需求，作為後續題目規劃的起點。</p>
-        </li>
-        <li>
-          <p class="text-[52px] font-black leading-none text-accent-orange" aria-hidden="true">02</p>
-          <p class="mt-4 text-lg font-medium">整理成題目</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">AIDA 將需求轉化為可執行的題目說明，包含問題背景、技術要求與適合參與的團隊條件。</p>
-        </li>
-        <li>
-          <p class="text-[52px] font-black leading-none text-accent-orange" aria-hidden="true">03</p>
-          <p class="mt-4 text-lg font-medium">新創開發</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">新創團隊依題目方向進行產品開發，而非自行決定研發主題；AI、影像等技術背景的團隊也可依題目投入。</p>
-        </li>
-        <li>
-          <p class="text-[52px] font-black leading-none text-accent-orange" aria-hidden="true">04</p>
-          <p class="mt-4 text-lg font-medium">量產與出場</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">產品驗證後進入量產階段，挺立資本協助新創於資本端規劃出場。</p>
-        </li>
-      </ol>
-    </section>
-
-    <!-- AIDA 提供的能力 -->
-    <section id="capabilities" class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="skew-italic relative mb-12 inline-block text-[28px] font-black sm:text-[36px]">AIDA 提供的能力</h2>
-      <ul class="relative grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2 lg:grid-cols-4">
-        <li class="reveal">
-          <span class="block h-14 w-14 rounded-2xl bg-accent-orange" aria-hidden="true"></span>
-          <p class="mt-6 text-xl font-medium">AI 算力</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">提供 AI 模型訓練與驗證所需的運算資源，支援新創加速產品開發。</p>
-        </li>
-        <li class="reveal">
-          <span class="block h-14 w-14 rounded-2xl bg-ink" aria-hidden="true"></span>
-          <p class="mt-6 text-xl font-medium">專利分析</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">協助新創進行專利佈局分析與智慧財產權規劃，強化技術產品的保護與價值。</p>
-        </li>
-        <li class="reveal">
-          <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-accent-orange to-ink" aria-hidden="true"></span>
-          <p class="mt-6 text-xl font-medium">財務會計</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">提供財務會計制度建置與日常諮詢，協助新創建立穩健的財務管理基礎。</p>
-        </li>
-        <li class="reveal">
-          <span class="block h-14 w-14 rounded-2xl bg-gradient-to-br from-ink to-accent-orange" aria-hidden="true"></span>
-          <p class="mt-6 text-xl font-medium">投資與上市顧問</p>
-          <!-- TODO(法務確認): 涉及投資顧問之文案，上線前須經法務確認 -->
-          <p class="mt-2 text-sm leading-relaxed text-sub">結合金融投資與上市顧問資源，協助新創規劃資本端出場路徑。</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- 精選題目 -->
-    <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="skew-italic mb-8 inline-block text-[28px] font-black sm:text-[36px]">精選題目</h2>
-      <p class="max-w-2xl leading-relaxed text-sub">
-        題目是 AIDA 把軍方實際需求整理成的問題分析，說明問題背景、需求與適合參與的團隊條件，新創依題目開發產品，而非自行決定研發方向。
-      </p>
-      <ul class="mt-12 grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2">
-        <li>
-          <span class="block h-14 w-14 rounded-2xl bg-accent-orange" aria-hidden="true"></span>
-          <p class="mt-6 text-xl font-medium">高速無人機製造</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">由平台成員升暘科技（SRA）負責，聚焦高速無人機的製造與整合。</p>
-        </li>
-        <li>
-          <span class="block h-14 w-14 rounded-2xl bg-ink" aria-hidden="true"></span>
-          <p class="mt-6 text-xl font-medium">反無人機技術</p>
-          <p class="mt-2 text-sm leading-relaxed text-sub">由平台成員升暘科技（SRA）負責，聚焦反無人機偵測與反制技術。</p>
-        </li>
-      </ul>
-      <p class="mt-10 text-sm leading-relaxed text-sub">更多領域的題目內容陸續整理中；新創團隊可依題目背景評估參與意願，並透過上方入口與 AIDA 聯繫。</p>
-      <a href="/challenges/" class="mt-4 inline-block font-medium text-accent-orange hover:underline">查看全部題目 →</a>
-    </section>
-
-    <!-- 最新論壇文章與新聞 -->
-    <section class="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6 sm:pb-32">
-      <h2 class="skew-italic mb-12 inline-block text-[28px] font-black sm:text-[36px]">最新論壇文章與新聞</h2>
-      <div class="grid grid-cols-1 gap-12 border-t border-line pt-12 sm:grid-cols-2">
-        <div>
-          <span class="block h-14 w-14 rounded-2xl bg-ink" aria-hidden="true"></span>
-          <h3 class="mt-6 text-xl font-medium">論壇</h3>
-          <p class="mt-2 text-sm leading-relaxed text-sub">
-            AIDA 論壇不是新聞媒體，而是依主題分區的專欄型內容，目前規劃的主題包含戰爭影像、現況分析、國際資訊（例如烏克蘭、捷克等地情勢）；文章陸續發布中。
-          </p>
-          <a href="/forum/" class="mt-4 inline-block text-sm font-medium text-accent-orange hover:underline">前往論壇 →</a>
-        </div>
-        <div>
-          <span class="block h-14 w-14 rounded-2xl bg-accent-orange" aria-hidden="true"></span>
-          <h3 class="mt-6 text-xl font-medium">新聞</h3>
-          <p class="mt-2 text-sm leading-relaxed text-sub">
-            AIDA 的活動、課程、媒體報導與國際合作消息將發布於此；歐洲、美國、日本的合作串聯訊息將陸續更新。
-          </p>
-          <a href="/news/" class="mt-4 inline-block text-sm font-medium text-accent-orange hover:underline">前往新聞 →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 場域 -->
-    <section class="relative">
-      <div class="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
-        <h2 class="skew-italic mb-8 inline-block text-[28px] font-black sm:text-[36px]">場域</h2>
-        <p class="max-w-2xl leading-relaxed text-sub">
-          AIDA 的活動與課程主要在兩處場域進行：台中會議中心提供會議室與上課空間，並作為公司登記地址；升暘劇場則用於課程與論壇活動。場地使用採預約方式。
-        </p>
-
-        <h3 class="mt-14 text-lg font-semibold">台中會議中心</h3>
-        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-sub"><!-- TODO(主管確認): 完整地址待補 -->台中會議中心為公司登記地址，提供會議室、小型教室與大型會議室，可供上課與對外洽談使用。</p>
-        <div class="mt-8 grid grid-cols-1 gap-8 border-t border-line pt-8 sm:grid-cols-3">
-          <figure>
-            <img
-              src="/assets/images/venues/taichung-center-pantry.jpg"
-              alt="台中會議中心茶水吧檯，備有冰箱與咖啡機"
-              class="aspect-[4/3] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1376"
-              height="768"
-            />
-            <figcaption class="mt-3 text-sm text-sub">茶水吧檯區</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/images/venues/taichung-center-meeting-room.jpg"
-              alt="台中會議中心小型會議室，備有長桌、座椅與書牆"
-              class="aspect-[4/3] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1376"
-              height="768"
-            />
-            <figcaption class="mt-3 text-sm text-sub">小型會議室</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/images/venues/taichung-center-conference-room.jpg"
-              alt="台中會議中心大型會議室，長桌可容納多人與會，配有電視螢幕"
-              class="aspect-[4/3] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1264"
-              height="848"
-            />
-            <figcaption class="mt-3 text-sm text-sub">大型會議室</figcaption>
-          </figure>
-        </div>
-
-        <h3 class="mt-14 text-lg font-semibold">升暘劇場</h3>
-        <p class="mt-2 max-w-2xl text-sm leading-relaxed text-sub">升暘劇場用於課程與論壇活動，不作為公司登記地址。</p>
-        <div class="mt-8 grid grid-cols-1 gap-12 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-4">
-          <figure>
-            <img
-              src="/assets/images/venues/sunyoung-theater-exterior.jpg"
-              alt="升暘劇場玻璃屋外觀，草坪庭院環繞"
-              class="aspect-[3/4] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1108"
-              height="1477"
-            />
-            <figcaption class="mt-3 text-sm text-sub">升暘劇場外觀</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/images/venues/sunyoung-theater-interior.jpg"
-              alt="升暘劇場室內，排列會議桌椅的上課與活動空間"
-              class="aspect-[3/4] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1108"
-              height="1477"
-            />
-            <figcaption class="mt-3 text-sm text-sub">升暘劇場室內，可供上課與活動使用</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/images/venues/sunyoung-theater-garden-pavilion.jpg"
-              alt="升暘聚場戶外涼亭與木桌座位區，草坪庭院環繞"
-              class="aspect-[3/4] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1108"
-              height="1477"
-            />
-            <figcaption class="mt-3 text-sm text-sub">升暘聚場戶外涼亭座位區</figcaption>
-          </figure>
-          <figure>
-            <img
-              src="/assets/images/venues/sunyoung-theater-garden-path.jpg"
-              alt="升暘聚場庭院步道，兩側盆栽松柏通往玻璃屋"
-              class="aspect-[3/4] w-full rounded-2xl object-cover"
-              loading="lazy"
-              width="1108"
-              height="1477"
-            />
-            <figcaption class="mt-3 text-sm text-sub">升暘聚場庭院步道</figcaption>
-          </figure>
-        </div>
-
-        <a href="/venues/" class="mt-10 inline-block font-medium text-accent-orange hover:underline">了解場域資訊 →</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- include:partials/footer.zh.html -->
-
-  <script>
-    // 「AIDA 提供的能力」捲動進場：漸進增強，JS 或 IntersectionObserver 不存在時內容維持原本可見狀態。
-    if ("IntersectionObserver" in window) {
-      document.body.classList.add("js-ready");
-      var revealItems = document.querySelectorAll("#capabilities .reveal");
-      revealItems.forEach(function (el, index) {
-        el.style.setProperty("--reveal-delay", index * 90 + "ms");
-      });
-      var revealObserver = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              revealObserver.unobserve(entry.target);
-            }
-          });
+<!-- 結構化資料：內容必須與頁面上可見的文字一致 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://aida.com/#organization",
+      "name": "AIDA",
+      "alternateName": ["AI DefTech Accelerator", "AI 國防科技加速器"],
+      "url": "https://aida.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://aida.com/assets/images/logo.png",
+        "width": 600,
+        "height": 200
+      },
+      "description": "AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。",
+      "funder": { "@type": "Organization", "name": "挺立資本" },
+      "address": { "@id": "https://aida.com/#taichung-conference-center-address" },
+      "location": [
+        { "@id": "https://aida.com/#taichung-conference-center" },
+        { "@id": "https://aida.com/#shengyang-venue" }
+      ],
+      "knowsAbout": ["AI 國防科技", "無人機", "反無人機", "AI 影像", "新創加速"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://aida.com/#website",
+      "url": "https://aida.com/",
+      "name": "AIDA",
+      "alternateName": "AI DefTech Accelerator",
+      "inLanguage": "zh-Hant-TW",
+      "publisher": { "@id": "https://aida.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://aida.com/#webpage",
+      "url": "https://aida.com/",
+      "name": "AIDA AI DefTech Accelerator｜AI 國防科技加速器",
+      "description": "AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方與海外實際需求整理成題目，輔導新創開發市場需要的軍工產品。",
+      "inLanguage": "zh-Hant-TW",
+      "isPartOf": { "@id": "https://aida.com/#website" },
+      "about": { "@id": "https://aida.com/#organization" },
+      "primaryImageOfPage": "https://aida.com/assets/images/og-image.jpg"
+    },
+    {
+      "@type": "Place",
+      "@id": "https://aida.com/#taichung-conference-center",
+      "name": "台中會議中心",
+      "description": "會議室、茶水吧檯與閱覽室，適合會議與日常工作。",
+      "address": {
+        "@type": "PostalAddress",
+        "@id": "https://aida.com/#taichung-conference-center-address",
+        "streetAddress": "何源里河南路一段170號5樓-3",
+        "addressLocality": "西屯區",
+        "addressRegion": "臺中市",
+        "postalCode": "407",
+        "addressCountry": "TW"
+      },
+      "maximumAttendeeCapacity": 15,
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:30"
+      }
+    },
+    {
+      "@type": "Place",
+      "@id": "https://aida.com/#shengyang-venue",
+      "name": "升暘聚場",
+      "description": "獨棟玻璃帷幕場館與多功能教室，適合課程與交流活動。",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "橫山里永和路124號",
+        "addressLocality": "大雅區",
+        "addressRegion": "臺中市",
+        "postalCode": "428",
+        "addressCountry": "TW"
+      },
+      "maximumAttendeeCapacity": 30,
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://aida.com/#services",
+      "name": "AIDA 的加速燃料",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "Service", "name": "AI 算力", "description": "提供新創開發與訓練模型所需的運算資源。", "provider": { "@id": "https://aida.com/#organization" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "Service", "name": "專利分析與智慧財產權", "description": "專利分析、商標與智慧財產權布局。", "provider": { "@id": "https://aida.com/#organization" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "Service", "name": "財務會計", "description": "新創營運所需的財務與會計支援。", "provider": { "@id": "https://aida.com/#organization" } } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "Service", "name": "投資與上市顧問", "description": "由挺立資本提供上市規劃顧問，協助新創出場。", "provider": { "@id": "https://aida.com/#organization" } } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "Service", "name": "海外串聯", "description": "串聯歐洲、美國、日本的加速器與國防相關單位，協助新創接軌海外市場。", "provider": { "@id": "https://aida.com/#organization" } } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "Service", "name": "製造諮詢", "description": "協助新創從原型走向量產的製造諮詢。", "provider": { "@id": "https://aida.com/#organization" } } }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://aida.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "AIDA 是什麼？",
+          "acceptedAnswer": { "@type": "Answer", "text": "AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。" }
         },
-        { threshold: 0.2, rootMargin: "0px 0px -60px 0px" },
-      );
-      revealItems.forEach(function (el) {
-        revealObserver.observe(el);
-      });
+        {
+          "@type": "Question",
+          "name": "什麼是 AIDA 的題目？",
+          "acceptedAnswer": { "@type": "Answer", "text": "題目是 AIDA 把軍方實際需求整理成的問題分析，新創依題目開發產品。" }
+        },
+        {
+          "@type": "Question",
+          "name": "AIDA 如何運作？",
+          "acceptedAnswer": { "@type": "Answer", "text": "需求來自軍方與海外。AIDA 把實際需求整理成可落實的題目，招募新創依題目開發——不是新創想做什麼就做什麼，而是做市場真正需要的。流程為：軍方與海外的實際需求、可落實的題目、招募新創開發、輔導量產與出場。" }
+        }
+      ]
     }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- include:partials/header.zh.html -->
 
-    // 轉場區塊的像素溶解：產生棋盤格方塊，捲動進入畫面時隨機時間差消散。
-    // 漸進增強：沒有 JS 時 pixelGrid 容器是空的，不影響內容。
-    (function () {
-      var grid = document.getElementById("pixelGrid");
-      if (!grid) return;
-      for (var i = 0; i < 72; i++) {
-        var cell = document.createElement("span");
-        cell.style.setProperty("--d", Math.floor(Math.random() * 300) + "ms");
-        grid.appendChild(cell);
-      }
-      if ("IntersectionObserver" in window) {
-        var logoObserver = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              if (entry.isIntersecting) {
-                grid.classList.add("is-visible");
-                logoObserver.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.4 },
-        );
-        logoObserver.observe(document.getElementById("logoBeat"));
-      } else {
-        grid.classList.add("is-visible");
-      }
-    })();
+<main id="main">
 
-    // 「需求變題目」大字塊宣言：描邊字隨捲動由左至右填色。
-    // 漸進增強：沒有 JS 時維持 CSS 預設（.fill 的 clip-path 初始值會被 reduced-motion
-    // 以外的情況下擋住，所以同時提供一個無 JS 的保底全填色 class）。
-    (function () {
-      var target = document.getElementById("outlineTarget");
-      if (!target) return;
-      var fillEl = target.querySelector(".fill");
-      if (!fillEl) return;
+  <!-- ========== Hero ========== -->
+  <section class="aida-hero-wrap" aria-labelledby="hero-title">
+    <div class="aida-hero">
+      <div class="aida-hero__media" data-carousel aria-roledescription="carousel" aria-label="主視覺輪播">
+        <img class="aida-hero__slide aida-hero__slide--quadruped is-active" src="/assets/images/hero-quadruped.webp" srcset="/assets/images/hero-quadruped-sm.webp 1000w, /assets/images/hero-quadruped.webp 2000w" sizes="(max-width: 1100px) 100vw, 76vw" width="2000" height="1333" alt="橘色四足機器人站在昏暗的室內，側面打光" fetchpriority="high" decoding="async">
+        <img class="aida-hero__slide aida-hero__slide--uav" src="/assets/images/hero-uav.webp" srcset="/assets/images/hero-uav-sm.webp 900w, /assets/images/hero-uav.webp 1600w" sizes="(max-width: 1100px) 100vw, 76vw" width="1600" height="1065" alt="一架灰色軍用無人機在藍天中飛行，從下方仰拍" loading="lazy" decoding="async">
+        <img class="aida-hero__slide aida-hero__slide--network" src="/assets/images/hero-network.webp" srcset="/assets/images/hero-network-sm.webp 1000w, /assets/images/hero-network.webp 2000w" sizes="(max-width: 1100px) 100vw, 76vw" width="2000" height="1125" alt="發光的藍色光纖線條與光點，象徵 AI 與資料傳輸" loading="lazy" decoding="async">
+        <img class="aida-hero__slide aida-hero__slide--aihead" src="/assets/images/hero-ai-head.webp" srcset="/assets/images/hero-ai-head-sm.webp 1000w, /assets/images/hero-ai-head.webp 2000w" sizes="(max-width: 1100px) 100vw, 76vw" width="2000" height="1332" alt="藍色數位人頭像，雙眼發出橘光，表面布滿文字紋路，象徵人工智慧" loading="lazy" decoding="async">
+      </div>
+      <div class="aida-hero__dots" role="group" aria-label="切換主視覺" data-carousel-dots>
+        <button type="button" class="aida-hero__dot is-active" aria-label="第 1 張" aria-current="true"></button>
+        <button type="button" class="aida-hero__dot" aria-label="第 2 張"></button>
+        <button type="button" class="aida-hero__dot" aria-label="第 3 張"></button>
+        <button type="button" class="aida-hero__dot" aria-label="第 4 張"></button>
+      </div>
+      <div class="aida-hero__panel" aria-hidden="true"></div>
+      <div class="aida-hero__fade" aria-hidden="true"></div>
+      <div class="aida-hero__content">
+        <div class="aida-hero__copy">
+          <p class="font-display text-[clamp(52px,6.2vw,100px)] leading-[.88] font-black tracking-[-.045em] text-paper" aria-hidden="true">Real Needs.<br>Real <span class="text-accent">Defense</span><br>Tech.</p>
+          <h1 id="hero-title" class="max-w-[22em] text-[clamp(20px,1.9vw,28px)] leading-normal font-bold tracking-[.01em] text-pretty">以軍方真實需求為題目，<br>輔導新創開發市場真正需要的軍工產品。</h1>
+          <p class="flex flex-wrap gap-3">
+            <a href="/#challenges" class="aida-btn aida-btn--accent">查看題目 <span aria-hidden="true">→</span></a>
+            <a href="/#join" class="aida-btn aida-btn--ghost-dark">新創如何加入</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      function updateFill() {
-        var rect = target.getBoundingClientRect();
-        var vh = window.innerHeight;
-        var progress = (vh * 0.85 - rect.top) / (rect.height + vh * 0.5);
-        progress = Math.max(0, Math.min(1, progress));
-        fillEl.style.clipPath = "inset(0 " + (100 - progress * 100) + "% 0 0)";
-      }
+  <!-- ========== 關於 + 精選題目 ========== -->
+  <div class="bg-paper text-ink" data-stack>
+    <div class="aida-container aida-band flex flex-col gap-[clamp(96px,11vw,160px)]">
 
-      window.addEventListener("scroll", updateFill, { passive: true });
-      window.addEventListener("resize", updateFill);
-      updateFill();
-    })();
-  </script>
+      <section id="about" class="grid gap-[clamp(32px,5vw,80px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr))]" aria-labelledby="what-title">
+        <div class="flex flex-col gap-3">
+          <p class="aida-eyebrow text-accent-deep">ABOUT</p>
+          <p class="aida-display text-[clamp(44px,6vw,88px)] will-change-transform" aria-hidden="true" data-mouse-sway="36">What is<br>AIDA<span class="text-accent">?</span></p>
+        </div>
+        <div class="flex flex-col gap-7">
+          <h2 id="what-title" class="text-[clamp(24px,2.4vw,34px)] leading-[1.3] font-black" data-reveal>AIDA 是什麼？</h2>
+          <!-- TODO: 主管確認（定義句） -->
+          <p class="text-[clamp(18px,1.6vw,22px)] leading-[1.8] font-medium text-pretty">AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。</p>
+          <dl class="grid gap-px border border-line-light bg-line-light [grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]">
+            <div class="flex flex-col gap-1.5 bg-paper p-5"><dt class="font-mono text-[11px] text-meta">適合誰</dt><dd class="leading-[1.6] font-bold">做 AI、影像科技的新創，即使原本沒做軍工也可投入</dd></div>
+            <div class="flex flex-col gap-1.5 bg-paper p-5"><dt class="font-mono text-[11px] text-meta">如何參與</dt><dd class="leading-[1.6] font-bold">選擇題目、申請加入會員，依題目開發產品</dd></div>
+          </dl>
+          <a class="aida-link aida-link--on-light">了解 AIDA 與挺立資本的關係 <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section id="challenges" class="flex flex-col gap-[clamp(40px,5vw,64px)]" aria-labelledby="ch-title">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div class="flex flex-col gap-3">
+            <p class="aida-eyebrow text-accent-deep">CHALLENGES</p>
+            <h2 id="ch-title" class="aida-h2 aida-h2--sub" data-reveal>精選題目</h2>
+          </div>
+          <p class="max-w-[30em] leading-[1.8] text-pretty text-body-light">題目是 AIDA 把軍方實際需求整理成的問題分析，新創依題目開發產品。</p>
+        </div>
+        <!-- TODO: 其他領域題目由主管提供後陸續公布 -->
+        <ul class="flex flex-col border-t-2 border-ink">
+          <li data-reveal>
+            <a class="aida-row aida-row--challenge grid grid-cols-[minmax(0,80px)_minmax(0,1fr)_auto] items-center gap-6 border-b border-line-light py-9">
+              <span class="font-mono text-[13px] text-meta-2">C-01</span>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[clamp(26px,3.4vw,48px)] leading-[1.15] font-black">快速製造無人機</h3>
+                <span class="text-sm text-meta">負責成員：SRA 升暘科技</span>
+              </div>
+              <span class="aida-row__arrow text-[28px]" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li data-reveal>
+            <a class="aida-row aida-row--challenge grid grid-cols-[minmax(0,80px)_minmax(0,1fr)_auto] items-center gap-6 border-b border-line-light py-9">
+              <span class="font-mono text-[13px] text-meta-2">C-02</span>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-[clamp(26px,3.4vw,48px)] leading-[1.15] font-black">反無人機</h3>
+                <span class="text-sm text-meta">負責成員：SRA 升暘科技</span>
+              </div>
+              <span class="aida-row__arrow text-[28px]" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+        <p class="flex flex-wrap justify-end gap-3">
+          <a class="aida-btn aida-btn--sm aida-btn--ghost-light">洽詢題目</a>
+          <a href="/#join" class="aida-btn aida-btn--sm aida-btn--accent aida-btn--accent-on-light">申請加入 <span aria-hidden="true">→</span></a>
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ========== 加速燃料（服務）+ 如何運作 ========== -->
+  <div class="border-t border-line-light bg-paper text-ink" data-stack>
+    <div class="aida-container aida-band flex flex-col gap-[clamp(96px,11vw,160px)]">
+
+      <section id="services" class="flex flex-col gap-[clamp(40px,5vw,64px)]" aria-labelledby="cap-title">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div class="flex flex-col gap-3">
+            <p class="aida-eyebrow text-accent-deep">ACCELERATION FUEL</p>
+            <!-- TODO: 主管確認（區塊標題「加速燃料」與 6 項服務內容） -->
+            <h2 id="cap-title" class="aida-h2" data-reveal>AIDA 的加速燃料</h2>
+            <p class="max-w-[32em] leading-[1.8] text-pretty text-body-light">加速器的服務，就是讓新創平順走到市場。這些燃料來自挺立團隊的專業。</p>
+          </div>
+          <a class="aida-link aida-link--on-light">查看全部服務 <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))]" data-reveal-step="150">
+          <li class="aida-svc__card flex min-h-[300px] flex-col gap-5 rounded p-7" data-reveal>
+            <p class="font-mono text-xs text-accent" lang="en">AI COMPUTING</p>
+            <h3 class="text-[26px] font-black">AI 算力</h3>
+            <p class="flex-1 text-[15px] leading-[1.75] text-muted">提供新創開發與訓練模型所需的運算資源。</p>
+            <a class="text-sm font-bold text-accent">了解 AI 算力服務 <span aria-hidden="true">→</span></a>
+          </li>
+          <li class="aida-svc__card flex min-h-[300px] flex-col gap-5 rounded p-7" data-reveal>
+            <p class="font-mono text-xs text-accent" lang="en">PATENT &amp; IP</p>
+            <h3 class="text-[26px] font-black">專利分析與智慧財產權</h3>
+            <p class="flex-1 text-[15px] leading-[1.75] text-muted">專利分析、商標與智慧財產權布局。</p>
+            <a class="text-sm font-bold text-accent">了解專利與智財服務 <span aria-hidden="true">→</span></a>
+          </li>
+          <li class="aida-svc__card flex min-h-[300px] flex-col gap-5 rounded p-7" data-reveal>
+            <p class="font-mono text-xs text-accent" lang="en">ACCOUNTING</p>
+            <h3 class="text-[26px] font-black">財務會計</h3>
+            <p class="flex-1 text-[15px] leading-[1.75] text-muted">新創營運所需的財務與會計支援。</p>
+            <a class="text-sm font-bold text-accent">了解財務會計服務 <span aria-hidden="true">→</span></a>
+          </li>
+          <li class="aida-svc__card flex min-h-[300px] flex-col gap-5 rounded p-7" data-reveal>
+            <p class="font-mono text-xs text-accent" lang="en">INVESTMENT &amp; IPO</p>
+            <h3 class="text-[26px] font-black">投資與上市顧問</h3>
+            <!-- TODO: 法務確認 -->
+            <p class="flex-1 text-[15px] leading-[1.75] text-muted">由挺立資本提供上市規劃顧問，協助新創出場。</p>
+            <a class="text-sm font-bold text-accent">了解投資與上市顧問 <span aria-hidden="true">→</span></a>
+          </li>
+          <li class="aida-svc__card flex min-h-[300px] flex-col gap-5 rounded p-7" data-reveal>
+            <p class="font-mono text-xs text-accent" lang="en">OVERSEAS NETWORK</p>
+            <h3 class="text-[26px] font-black">海外串聯</h3>
+            <!-- TODO: 主管確認（服務說明） -->
+            <p class="flex-1 text-[15px] leading-[1.75] text-muted">串聯歐洲、美國、日本的加速器與國防相關單位，協助新創接軌海外市場。</p>
+            <a class="text-sm font-bold text-accent">了解海外串聯服務 <span aria-hidden="true">→</span></a>
+          </li>
+          <li class="aida-svc__card flex min-h-[300px] flex-col gap-5 rounded p-7" data-reveal>
+            <p class="font-mono text-xs text-accent" lang="en">MANUFACTURING</p>
+            <h3 class="text-[26px] font-black">製造諮詢</h3>
+            <!-- TODO: 主管確認（服務說明） -->
+            <p class="flex-1 text-[15px] leading-[1.75] text-muted">協助新創從原型走向量產的製造諮詢。</p>
+            <a class="text-sm font-bold text-accent">了解製造諮詢服務 <span aria-hidden="true">→</span></a>
+          </li>
+        </ul>
+      </section>
+
+      <section id="how-it-works" class="flex flex-col gap-[clamp(40px,5vw,64px)]" aria-labelledby="how-title">
+        <div class="flex flex-wrap items-end justify-between gap-6">
+          <div class="flex flex-col gap-3">
+            <p class="aida-eyebrow text-accent-deep">HOW IT WORKS</p>
+            <h2 id="how-title" class="aida-h2 aida-h2--sub tracking-[-.01em]" data-reveal>AIDA 如何運作？</h2>
+          </div>
+          <p class="max-w-[30em] leading-[1.8] text-pretty text-body-light">需求來自軍方與海外。AIDA 把實際需求整理成可落實的題目，招募新創依題目開發——不是新創想做什麼就做什麼，而是做市場真正需要的。</p>
+        </div>
+        <ol class="grid gap-px border-t-2 border-b border-t-ink border-b-line-light bg-line-light [grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))]">
+          <li class="flex flex-col gap-[18px] bg-paper py-9 pr-7 pb-10" data-reveal>
+            <span class="font-display text-[64px] leading-none font-extrabold tracking-[-.04em] text-accent" aria-hidden="true">01</span>
+            <h3 class="text-[22px] font-black">軍方與海外的實際需求</h3>
+            <p class="text-[15px] leading-[1.75] text-body-light">需求來自軍方與海外的實際任務與場景。</p>
+          </li>
+          <li class="flex flex-col gap-[18px] bg-paper px-7 py-9 pb-10" data-reveal>
+            <span class="font-display text-[64px] leading-none font-extrabold tracking-[-.04em] text-accent" aria-hidden="true">02</span>
+            <h3 class="text-[22px] font-black">可落實的題目</h3>
+            <p class="text-[15px] leading-[1.75] text-body-light">AIDA 將需求整理成可落實的問題分析，即「題目」。</p>
+          </li>
+          <li class="flex flex-col gap-[18px] bg-paper px-7 py-9 pb-10" data-reveal>
+            <span class="font-display text-[64px] leading-none font-extrabold tracking-[-.04em] text-accent" aria-hidden="true">03</span>
+            <h3 class="text-[22px] font-black">招募新創開發</h3>
+            <p class="text-[15px] leading-[1.75] text-body-light">依題目招募新創投入開發，AIDA 提供加速輔導與資源。</p>
+          </li>
+          <li class="flex flex-col gap-[18px] bg-paper px-7 py-9 pb-10" data-reveal>
+            <span class="font-display text-[64px] leading-none font-extrabold tracking-[-.04em] text-accent" aria-hidden="true">04</span>
+            <h3 class="text-[22px] font-black">輔導量產與出場</h3>
+            <p class="text-[15px] leading-[1.75] text-body-light">輔導新創走到量產，挺立資本負責資本端，協助新創出場。</p>
+          </li>
+        </ol>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ========== 案例與合作廠商（滿版） ========== -->
+  <!-- TODO: 案例與合作廠商資料尚未提供，以下為版位；上線前替換成實際案例與 logo -->
+  <section id="cases" class="bg-ink" aria-labelledby="cases-title" data-stack>
+    <div class="aida-band flex flex-col gap-[clamp(56px,7vw,104px)] px-[clamp(20px,4vw,72px)]">
+      <div class="flex flex-col gap-3">
+        <p class="aida-eyebrow text-accent">CASES &amp; PARTNERS</p>
+        <h2 id="cases-title" class="aida-h2" data-reveal>案例與合作廠商</h2>
+      </div>
+
+      <section class="flex flex-col gap-6" aria-labelledby="cases-list-title">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-line-dark-2 pt-5">
+          <h3 id="cases-list-title" class="text-[clamp(24px,2.4vw,32px)] font-black">案例</h3>
+          <a class="aida-tr text-sm font-bold text-accent hover:text-paper">所有案例 <span aria-hidden="true">→</span></a>
+        </div>
+        <ul class="aida-cases">
+          <li class="aida-cases__item" data-reveal>
+            <article>
+              <a class="aida-cases__link aida-tr flex flex-col gap-5">
+                <div class="aida-cases__media aida-frame aspect-[3/2] bg-ink-2"><img class="aida-parallax-img object-[50%_62%]" src="/assets/images/case-01.webp" srcset="/assets/images/case-01-sm.webp 600w, /assets/images/case-01.webp 900w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="900" height="1351" alt="活動現場：觀眾坐滿圖書館中庭的階梯座位" loading="lazy" decoding="async" data-img-parallax></div>
+                <p class="font-mono text-[11px] tracking-[.08em] text-accent">CASE 01 · 無人機</p>
+                <h4 class="text-[clamp(18px,1.5vw,22px)] leading-[1.6] font-black tracking-[.02em] text-pretty">[ 案例標題：新創名稱與成果，一到兩行 ]</h4>
+                <p class="text-sm text-muted-2">[ 新創／合作單位名稱 ]</p>
+                <span class="aida-cases__arrow text-xl" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li class="aida-cases__item" data-reveal>
+            <article>
+              <a class="aida-cases__link aida-tr flex flex-col gap-5">
+                <div class="aida-cases__media aida-frame aspect-[3/2] bg-ink-2"><img class="aida-parallax-img object-center" src="/assets/images/case-02.webp" srcset="/assets/images/case-02-sm.webp 600w, /assets/images/case-02.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1200" height="800" alt="論壇現場：配戴識別證的與會者專注聆聽" loading="lazy" decoding="async" data-img-parallax></div>
+                <p class="font-mono text-[11px] tracking-[.08em] text-accent">CASE 02 · 反無人機</p>
+                <h4 class="text-[clamp(18px,1.5vw,22px)] leading-[1.6] font-black tracking-[.02em] text-pretty">[ 案例標題：新創名稱與成果，一到兩行 ]</h4>
+                <p class="text-sm text-muted-2">[ 新創／合作單位名稱 ]</p>
+                <span class="aida-cases__arrow text-xl" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li class="aida-cases__item" data-reveal>
+            <article>
+              <a class="aida-cases__link aida-tr flex flex-col gap-5">
+                <div class="aida-cases__media aida-frame aspect-[3/2] bg-ink-2"><img class="aida-parallax-img object-[50%_40%]" src="/assets/images/case-03.webp" srcset="/assets/images/case-03-sm.webp 600w, /assets/images/case-03.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1200" height="753" alt="展示現場：與會者在大型螢幕前互動展示" loading="lazy" decoding="async" data-img-parallax></div>
+                <p class="font-mono text-[11px] tracking-[.08em] text-accent">CASE 03 · AI 影像</p>
+                <h4 class="text-[clamp(18px,1.5vw,22px)] leading-[1.6] font-black tracking-[.02em] text-pretty">[ 案例標題：新創名稱與成果，一到兩行 ]</h4>
+                <p class="text-sm text-muted-2">[ 新創／合作單位名稱 ]</p>
+                <span class="aida-cases__arrow text-xl" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li class="aida-cases__item" data-reveal>
+            <article>
+              <a class="aida-cases__link aida-tr flex flex-col gap-5">
+                <div class="aida-cases__media aida-frame aspect-[3/2] bg-ink-2"><img class="aida-parallax-img object-[50%_45%]" src="/assets/images/case-04.webp" srcset="/assets/images/case-04-sm.webp 600w, /assets/images/case-04.webp 1200w" sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw" width="1200" height="675" alt="研討會現場：與會者坐在會場中聆聽" loading="lazy" decoding="async" data-img-parallax></div>
+                <p class="font-mono text-[11px] tracking-[.08em] text-accent">CASE 04 · 無人機</p>
+                <h4 class="text-[clamp(18px,1.5vw,22px)] leading-[1.6] font-black tracking-[.02em] text-pretty">[ 案例標題：新創名稱與成果，一到兩行 ]</h4>
+                <p class="text-sm text-muted-2">[ 新創／合作單位名稱 ]</p>
+                <span class="aida-cases__arrow text-xl" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li class="aida-cases__item" data-reveal>
+            <article>
+              <a class="aida-cases__link aida-tr flex flex-col gap-5">
+                <div class="aida-cases__media aida-frame aida-placeholder flex aspect-[3/2] items-end p-4"><span class="font-mono text-xs text-muted-3">[ 案例圖片 ]</span></div>
+                <p class="font-mono text-[11px] tracking-[.08em] text-accent">CASE 05 · AI 影像</p>
+                <h4 class="text-[clamp(18px,1.5vw,22px)] leading-[1.6] font-black tracking-[.02em] text-pretty">[ 案例標題：新創名稱與成果，一到兩行 ]</h4>
+                <p class="text-sm text-muted-2">[ 新創／合作單位名稱 ]</p>
+                <span class="aida-cases__arrow text-xl" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+          <li class="aida-cases__item" data-reveal>
+            <article>
+              <a class="aida-cases__link aida-tr flex flex-col gap-5">
+                <div class="aida-cases__media aida-frame aida-placeholder flex aspect-[3/2] items-end p-4"><span class="font-mono text-xs text-muted-3">[ 案例圖片 ]</span></div>
+                <p class="font-mono text-[11px] tracking-[.08em] text-accent">CASE 06 · 反無人機</p>
+                <h4 class="text-[clamp(18px,1.5vw,22px)] leading-[1.6] font-black tracking-[.02em] text-pretty">[ 案例標題：新創名稱與成果，一到兩行 ]</h4>
+                <p class="text-sm text-muted-2">[ 新創／合作單位名稱 ]</p>
+                <span class="aida-cases__arrow text-xl" aria-hidden="true">→</span>
+              </a>
+            </article>
+          </li>
+        </ul>
+      </section>
+
+      <section class="flex flex-col gap-6" aria-labelledby="partners-title">
+        <div class="border-t border-line-dark-2 pt-5">
+          <h3 id="partners-title" class="text-[clamp(24px,2.4vw,32px)] font-black">合作廠商</h3>
+        </div>
+        <div class="aida-partners">
+          <div class="aida-partners__track">
+            <ul class="aida-partners__row">
+              <li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li>
+            </ul>
+            <!-- 第二排為無縫循環用的重複內容，對輔助技術隱藏 -->
+            <ul class="aida-partners__row" aria-hidden="true">
+              <li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li><li class="aida-partners__logo">[ LOGO ]</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ========== 論壇與最新消息 ========== -->
+  <!-- TODO: 以下為示意內容，正式文章由主管提供 -->
+  <section id="latest" class="bg-paper text-ink" aria-labelledby="latest-title" data-stack>
+    <div class="aida-container aida-band flex flex-col gap-[clamp(56px,7vw,96px)]">
+      <div class="flex flex-col gap-3">
+        <p class="aida-eyebrow text-accent-deep">FORUM &amp; NEWS</p>
+        <h2 id="latest-title" class="aida-h2" data-reveal>論壇與最新消息</h2>
+      </div>
+      <div class="grid gap-[clamp(32px,4vw,64px)] [grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))]">
+        <section class="flex flex-col gap-5" aria-labelledby="forum-title">
+          <div class="flex items-center justify-between border-b-2 border-ink pb-3">
+            <h3 id="forum-title" class="text-xl font-black">論壇專欄</h3>
+            <a class="aida-tr text-sm font-bold">所有論壇文章 <span aria-hidden="true">→</span></a>
+          </div>
+          <article class="aida-figure flex flex-col gap-3.5" data-reveal>
+            <a class="block" tabindex="-1" aria-hidden="true">
+              <div class="aida-frame aspect-video border-transparent bg-paper-2"><img class="aida-parallax-img object-[50%_40%]" src="/assets/images/forum-cover.webp" srcset="/assets/images/forum-cover-sm.webp 600w, /assets/images/forum-cover.webp 1080w" sizes="(max-width: 900px) 100vw, 50vw" width="1080" height="809" alt="論壇講座現場：講者在台上簡報，學員坐在教室聆聽" loading="lazy" decoding="async" data-img-parallax></div>
+            </a>
+            <p class="flex gap-3 font-mono text-xs text-meta"><span class="text-accent-deep">現況分析</span><time datetime="2026-11-01">2026.11.01</time></p>
+            <h4 class="text-[22px] leading-[1.4] font-black"><a class="aida-tr hover:text-accent-deep">烏克蘭反無人機戰術觀察</a></h4>
+          </article>
+          <ul class="flex flex-wrap gap-2" aria-label="論壇分類">
+            <li><a class="aida-tag">戰爭影像</a></li>
+            <li><a class="aida-tag">現況分析</a></li>
+            <li><a class="aida-tag">國際資訊</a></li>
+          </ul>
+        </section>
+        <section class="flex flex-col gap-5" aria-labelledby="news-title">
+          <div class="flex items-center justify-between border-b-2 border-ink pb-3">
+            <h3 id="news-title" class="text-xl font-black">新聞</h3>
+            <a class="aida-tr text-sm font-bold">所有新聞 <span aria-hidden="true">→</span></a>
+          </div>
+          <ul class="flex flex-col">
+            <li class="border-b border-line-light">
+              <a class="aida-row aida-row--news grid grid-cols-[110px_minmax(0,1fr)_auto] items-baseline gap-4 py-[22px]">
+                <time datetime="2026-10-27" class="font-mono text-xs text-meta">2026.10.27</time>
+                <div class="flex flex-col gap-1.5"><span class="font-mono text-[11px] text-accent-deep">活動</span><h4 class="text-[17px] leading-normal font-bold">AIDA 加速器平台正式啟動</h4></div>
+                <span class="aida-row__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="border-b border-line-light">
+              <a class="aida-row aida-row--news grid grid-cols-[110px_minmax(0,1fr)_auto] items-baseline gap-4 py-[22px]">
+                <time datetime="2026-10-15" class="font-mono text-xs text-meta">2026.10.15</time>
+                <div class="flex flex-col gap-1.5"><span class="font-mono text-[11px] text-accent-deep">課程</span><h4 class="text-[17px] leading-normal font-bold">升暘聚場國防科技系列課程開放報名</h4></div>
+                <span class="aida-row__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+            <li class="border-b border-line-light">
+              <a class="aida-row aida-row--news grid grid-cols-[110px_minmax(0,1fr)_auto] items-baseline gap-4 py-[22px]">
+                <time datetime="2026-10-02" class="font-mono text-xs text-meta">2026.10.02</time>
+                <div class="flex flex-col gap-1.5"><span class="font-mono text-[11px] text-accent-deep">國際合作</span><h4 class="text-[17px] leading-normal font-bold">AIDA 與歐洲加速器展開交流</h4></div>
+                <span class="aida-row__arrow" aria-hidden="true">→</span>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 場域 ========== -->
+  <section id="venues" class="bg-ink" aria-labelledby="venue-title" data-stack>
+    <div class="aida-container aida-band flex flex-col gap-[clamp(56px,7vw,104px)]">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <div class="flex flex-col gap-3">
+          <p class="aida-eyebrow text-accent">VENUES</p>
+          <h2 id="venue-title" class="aida-h2" data-reveal>場域</h2>
+        </div>
+        <div class="flex max-w-[30em] flex-col gap-4">
+          <p class="leading-[1.8] text-pretty text-muted">AIDA 會員可使用兩處場域：台中會議中心適合會議與日常工作；升暘聚場有獨棟場館與多功能教室，適合課程與交流活動。</p>
+          <a class="aida-link hover:text-accent">了解場域與預約方式 <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <section class="flex flex-col gap-6" aria-labelledby="venue-a-title">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-line-dark-2 pt-5">
+          <h3 id="venue-a-title" class="flex items-baseline gap-3.5 text-[clamp(24px,2.4vw,32px)] font-black"><span class="font-display font-extrabold text-accent" aria-hidden="true">A</span>台中會議中心</h3>
+          <p class="text-[15px] leading-[1.7] text-muted-2">會議室、茶水吧檯與閱覽室，適合會議與日常工作。</p>
+        </div>
+        <dl class="grid gap-px border border-line-dark bg-line-dark [grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))]">
+          <div class="flex flex-col gap-1.5 bg-ink px-5 py-4"><dt class="font-mono text-[11px] tracking-[.08em] text-muted-3">地址 ADDRESS</dt><dd class="text-[15px] leading-[1.6] font-bold"><address class="not-italic">407臺中市西屯區何源里河南路一段170號5樓-3</address></dd></div>
+          <div class="flex flex-col gap-1.5 bg-ink px-5 py-4"><dt class="font-mono text-[11px] tracking-[.08em] text-muted-3">容納人數 CAPACITY</dt><dd class="text-[15px] leading-[1.6] font-bold">10–15 人</dd></div>
+          <div class="flex flex-col gap-1.5 bg-ink px-5 py-4"><dt class="font-mono text-[11px] tracking-[.08em] text-muted-3">開放時間 HOURS</dt><dd class="text-[15px] leading-[1.6] font-bold">平日（週一至週五）<time datetime="09:00">09:00</time>–<time datetime="17:30">17:30</time></dd></div>
+        </dl>
+        <ul class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]">
+          <li data-reveal>
+            <figure class="aida-figure flex flex-col gap-3.5">
+              <div class="aida-frame aspect-[3/2]"><img class="aida-parallax-img" src="/assets/images/tc-meeting-room.webp" srcset="/assets/images/tc-meeting-room-sm.webp 600w, /assets/images/tc-meeting-room.webp 1200w" sizes="(max-width: 700px) 100vw, 33vw" width="1200" height="805" alt="台中會議中心會議室：長桌、多張座椅、壁掛螢幕與白板" loading="lazy" decoding="async" data-img-parallax></div>
+              <figcaption class="flex flex-col gap-1.5">
+                <span class="font-mono text-[11px] tracking-[.08em] text-accent">A-01 · MEETING ROOM</span>
+                <strong class="aida-figure__title text-xl font-black">會議室</strong>
+                <span class="text-sm leading-[1.7] text-muted-2">長桌會議室，配有壁掛螢幕、白板與桌面插座。</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li data-reveal>
+            <figure class="aida-figure flex flex-col gap-3.5">
+              <div class="aida-frame aspect-[3/2]"><img class="aida-parallax-img" src="/assets/images/tc-pantry.webp" srcset="/assets/images/tc-pantry-sm.webp 600w, /assets/images/tc-pantry.webp 1200w" sizes="(max-width: 700px) 100vw, 33vw" width="1200" height="670" alt="台中會議中心茶水吧檯：吧檯、高腳椅與冰箱" loading="lazy" decoding="async" data-img-parallax></div>
+              <figcaption class="flex flex-col gap-1.5">
+                <span class="font-mono text-[11px] tracking-[.08em] text-accent">A-02 · PANTRY</span>
+                <strong class="aida-figure__title text-xl font-black">茶水吧檯</strong>
+                <span class="text-sm leading-[1.7] text-muted-2">吧檯與高腳椅，會議空檔可在這裡休息交流。</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li data-reveal>
+            <figure class="aida-figure flex flex-col gap-3.5">
+              <div class="aida-frame aspect-[3/2]"><img class="aida-parallax-img" src="/assets/images/tc-library.webp" srcset="/assets/images/tc-library-sm.webp 600w, /assets/images/tc-library.webp 1200w" sizes="(max-width: 700px) 100vw, 33vw" width="1200" height="670" alt="台中會議中心閱覽室：木桌、白色座椅與整面書櫃" loading="lazy" decoding="async" data-img-parallax></div>
+              <figcaption class="flex flex-col gap-1.5">
+                <span class="font-mono text-[11px] tracking-[.08em] text-accent">A-03 · LIBRARY</span>
+                <strong class="aida-figure__title text-xl font-black">閱覽室</strong>
+                <span class="text-sm leading-[1.7] text-muted-2">整面書櫃搭配討論桌，適合小型會談或安靜工作。</span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+
+      <section class="flex flex-col gap-6" aria-labelledby="venue-b-title">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-t border-line-dark-2 pt-5">
+          <h3 id="venue-b-title" class="flex items-baseline gap-3.5 text-[clamp(24px,2.4vw,32px)] font-black"><span class="font-display font-extrabold text-accent" aria-hidden="true">B</span>升暘聚場</h3>
+          <p class="text-[15px] leading-[1.7] text-muted-2">獨棟玻璃帷幕場館與多功能教室，適合課程與交流活動。</p>
+        </div>
+        <dl class="grid gap-px border border-line-dark bg-line-dark [grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))]">
+          <div class="flex flex-col gap-1.5 bg-ink px-5 py-4"><dt class="font-mono text-[11px] tracking-[.08em] text-muted-3">地址 ADDRESS</dt><dd class="text-[15px] leading-[1.6] font-bold"><address class="not-italic">428臺中市大雅區橫山里永和路124號</address></dd></div>
+          <div class="flex flex-col gap-1.5 bg-ink px-5 py-4"><dt class="font-mono text-[11px] tracking-[.08em] text-muted-3">容納人數 CAPACITY</dt><dd class="text-[15px] leading-[1.6] font-bold">20–30 人</dd></div>
+          <div class="flex flex-col gap-1.5 bg-ink px-5 py-4"><dt class="font-mono text-[11px] tracking-[.08em] text-muted-3">開放時間 HOURS</dt><dd class="text-[15px] leading-[1.6] font-bold">24 小時營業</dd></div>
+        </dl>
+        <ul class="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]">
+          <li data-reveal>
+            <figure class="aida-figure flex flex-col gap-3.5">
+              <div class="aida-frame aspect-[3/2]"><img class="aida-parallax-img" src="/assets/images/venue-dusk-exterior.webp" srcset="/assets/images/venue-dusk-exterior-sm.webp 600w, /assets/images/venue-dusk-exterior.webp 1200w" sizes="(max-width: 700px) 100vw, 33vw" width="1200" height="900" alt="升暘聚場外觀：傍晚亮起燈帶的白色玻璃帷幕場館與草坪" loading="lazy" decoding="async" data-img-parallax></div>
+              <figcaption class="flex flex-col gap-1.5">
+                <span class="font-mono text-[11px] tracking-[.08em] text-accent">B-01 · EXTERIOR</span>
+                <strong class="aida-figure__title text-xl font-black">玻璃帷幕場館</strong>
+                <span class="text-sm leading-[1.7] text-muted-2">獨棟玻璃帷幕場館，四面採光，屋簷燈帶在傍晚亮起。</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li data-reveal>
+            <figure class="aida-figure flex flex-col gap-3.5">
+              <div class="aida-frame aspect-[3/2]"><img class="aida-parallax-img" src="/assets/images/venue-hall.webp" srcset="/assets/images/venue-hall-sm.webp 600w, /assets/images/venue-hall.webp 900w" sizes="(max-width: 700px) 100vw, 33vw" width="900" height="1200" alt="升暘聚場室內：明亮的多功能空間，排列著桌椅" loading="lazy" decoding="async" data-img-parallax></div>
+              <figcaption class="flex flex-col gap-1.5">
+                <span class="font-mono text-[11px] tracking-[.08em] text-accent">B-02 · HALL</span>
+                <strong class="aida-figure__title text-xl font-black">多功能教室</strong>
+                <span class="text-sm leading-[1.7] text-muted-2">設有空調，桌椅可依課程或會議彈性排列。</span>
+              </figcaption>
+            </figure>
+          </li>
+          <li data-reveal>
+            <figure class="aida-figure flex flex-col gap-3.5">
+              <div class="aida-frame aspect-[3/2]"><img class="aida-parallax-img object-[50%_55%]" src="/assets/images/venue-dusk-lawn.webp" srcset="/assets/images/venue-dusk-lawn-sm.webp 600w, /assets/images/venue-dusk-lawn.webp 1200w" sizes="(max-width: 700px) 100vw, 33vw" width="1200" height="900" alt="升暘聚場傍晚：草坪、亮燈的場館與戶外野餐桌" loading="lazy" decoding="async" data-img-parallax></div>
+              <figcaption class="flex flex-col gap-1.5">
+                <span class="font-mono text-[11px] tracking-[.08em] text-accent">B-03 · DUSK</span>
+                <strong class="aida-figure__title text-xl font-black">傍晚草坪</strong>
+                <span class="text-sm leading-[1.7] text-muted-2">場館前有大片草坪與戶外座位，適合交流與休息。</span>
+              </figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </section>
+
+  <!-- ========== 你是哪一種夥伴？ ========== -->
+  <section id="join" class="bg-accent text-ink" aria-labelledby="role-title" data-stack>
+    <div class="aida-container aida-band flex flex-col gap-[clamp(56px,7vw,96px)]">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <h2 id="role-title" class="aida-h2" data-reveal>你是哪一種夥伴？</h2>
+        <p class="aida-display text-[clamp(36px,5vw,72px)] will-change-transform" aria-hidden="true" data-parallax-x="-0.25">Join the<br>Mission.</p>
+      </div>
+      <ul class="grid gap-0.5 border-2 border-ink bg-ink [grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))]">
+        <li data-reveal>
+          <a class="aida-role flex h-full min-h-[280px] flex-col gap-5 p-8">
+            <span class="font-mono text-xs" lang="en">FOR STARTUPS</span>
+            <h3 class="text-[clamp(28px,2.8vw,40px)] font-black">我是新創</h3>
+            <span class="flex-1 leading-[1.75] font-medium">依題目投入軍工產品開發，加入會員取得場地、會計與上市諮詢資源。</span>
+            <span class="font-bold">新創加入方式 <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="aida-role flex h-full min-h-[280px] flex-col gap-5 p-8">
+            <span class="font-mono text-xs" lang="en">FOR PARTNERS</span>
+            <h3 class="text-[clamp(28px,2.8vw,40px)] font-black">合作夥伴</h3>
+            <span class="flex-1 leading-[1.75] font-medium">供應商、學校與研究單位、共同投資人。</span>
+            <span class="font-bold">合作洽詢 <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+        <li data-reveal>
+          <a class="aida-role flex h-full min-h-[280px] flex-col gap-5 p-8">
+            <span class="font-mono text-xs" lang="en">INTERNATIONAL</span>
+            <h3 class="text-[clamp(28px,2.8vw,40px)] font-black">國際合作</h3>
+            <span class="flex-1 leading-[1.75] font-medium">歐洲、美國、日本的加速器與國防相關單位。</span>
+            <span class="font-bold" lang="en">International Partnership <span aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      </ul>
+      <div class="flex flex-wrap items-center justify-between gap-6 border-t-2 border-ink pt-8">
+        <p class="max-w-[24em] text-[clamp(20px,2vw,26px)] leading-[1.6] font-bold">新創申請、合作洽詢或媒體聯繫，歡迎與 AIDA 聯絡。</p>
+        <a class="aida-btn aida-btn--ink gap-3 px-[34px] py-5 text-lg font-black">聯絡 AIDA <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- include:partials/footer.zh.html -->
 </body>
 </html>

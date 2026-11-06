@@ -1,24 +1,29 @@
-<footer class="border-t border-line bg-white">
-  <div class="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-    <div class="grid gap-8 sm:grid-cols-3">
-      <div>
-        <p class="text-sm font-semibold text-ink">AIDA</p>
-        <p class="mt-2 text-sm text-sub">AI DefTech Accelerator</p>
-        <!-- TODO(主管確認): 公司地址寫台中會議中心，待確認完整地址文字後補上 -->
+<footer class="bg-ink text-muted">
+  <div class="aida-container flex flex-col gap-12 pt-14 pb-8">
+    <div class="grid gap-10 [grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))]">
+      <div class="flex flex-col gap-3.5">
+        <a href="/" class="block h-[60px] self-start text-paper hover:text-paper" aria-label="AIDA 首頁">
+          <!-- include:partials/logo.html -->
+        </a>
       </div>
-      <nav aria-label="頁尾導覽">
-        <ul class="space-y-2 text-sm text-sub">
-          <li><a href="/contact/" class="hover:text-ink">聯絡我們</a></li>
-          <li><a href="/privacy/" class="hover:text-ink">隱私權政策</a></li>
-        </ul>
+      <div class="flex flex-col gap-3">
+        <p class="font-mono text-xs text-accent">LOCATION</p>
+        <address class="flex flex-col gap-3 text-sm leading-[1.8] text-paper not-italic">
+          <span>台中會議中心<br><span class="text-muted">407臺中市西屯區何源里河南路一段170號5樓-3</span></span>
+          <span>升暘聚場<br><span class="text-muted">428臺中市大雅區橫山里永和路124號</span></span>
+        </address>
+      </div>
+      <nav aria-label="頁尾選單" class="grid grid-cols-2 content-start gap-x-6 gap-y-2.5 text-sm">
+        <a class="aida-navlink justify-self-start" href="/#about">關於我們</a><a class="aida-navlink justify-self-start" href="/#challenges">題目</a>
+        <a class="aida-navlink justify-self-start" href="/#services">服務</a><a class="aida-navlink justify-self-start">平台成員</a>
+        <a class="aida-navlink justify-self-start" href="/#join">會員</a><a class="aida-navlink justify-self-start" href="/#venues">場域</a>
+        <a class="aida-navlink justify-self-start" href="/#latest">論壇</a><a class="aida-navlink justify-self-start" href="/#latest">新聞</a>
+        <a class="aida-navlink justify-self-start">聯絡我們</a><a class="aida-navlink justify-self-start">隱私權政策</a>
       </nav>
-      <div>
-        <!-- TODO(主管提供): 合作夥伴 / 媒體 / 社群連結待補 -->
-      </div>
     </div>
-    <p class="mt-8 text-xs text-sub">
-      &copy; <time datetime="2026">2026</time> AIDA
-      <!-- TODO(主管確認): 版權標示的正式法人名稱（AIDA／挺立資本）待確認 -->
-    </p>
+    <div class="flex flex-wrap justify-between gap-4 border-t border-line-dark pt-6 font-mono text-xs text-muted-3">
+      <p><small class="text-xs">© 2026 AIDA</small></p>
+      <p>繁體中文 / <a lang="en">English</a></p>
+    </div>
   </div>
 </footer>

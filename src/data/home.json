@@ -1,0 +1,134 @@
+{
+  "_note": "首頁重複資料整理（日後轉 Nuxt 或接 CMS 時使用）。目前頁面內容直接寫在 src/pages/index.html，修改時兩邊同步。",
+  "challenges": [
+    {
+      "code": "C-01",
+      "title": "快速製造無人機",
+      "member": "SRA 升暘科技",
+      "url": "/challenges/rapid-manufacturing-drones/"
+    },
+    {
+      "code": "C-02",
+      "title": "反無人機",
+      "member": "SRA 升暘科技",
+      "url": "/challenges/counter-drone/"
+    }
+  ],
+  "services": [
+    {
+      "tag": "AI COMPUTING",
+      "title": "AI 算力",
+      "description": "提供新創開發與訓練模型所需的運算資源。",
+      "url": "/services/ai-computing/"
+    },
+    {
+      "tag": "PATENT & IP",
+      "title": "專利分析與智慧財產權",
+      "description": "專利分析、商標與智慧財產權布局。",
+      "url": "/services/patent-ip/"
+    },
+    {
+      "tag": "ACCOUNTING",
+      "title": "財務會計",
+      "description": "新創營運所需的財務與會計支援。",
+      "url": "/services/accounting/"
+    },
+    {
+      "tag": "INVESTMENT & IPO",
+      "title": "投資與上市顧問",
+      "description": "由挺立資本提供上市規劃顧問，協助新創出場。",
+      "url": "/services/investment-ipo/",
+      "todo": "法務確認"
+    },
+    {
+      "tag": "OVERSEAS NETWORK",
+      "title": "海外串聯",
+      "description": "串聯歐洲、美國、日本的加速器與國防相關單位，協助新創接軌海外市場。",
+      "url": "/services/overseas-network/",
+      "todo": "主管確認"
+    },
+    {
+      "tag": "MANUFACTURING",
+      "title": "製造諮詢",
+      "description": "協助新創從原型走向量產的製造諮詢。",
+      "url": "/services/manufacturing/",
+      "todo": "主管確認"
+    }
+  ],
+  "steps": [
+    {
+      "no": "01",
+      "title": "軍方與海外的實際需求",
+      "description": "需求來自軍方與海外的實際任務與場景。"
+    },
+    {
+      "no": "02",
+      "title": "可落實的題目",
+      "description": "AIDA 將需求整理成可落實的問題分析，即「題目」。"
+    },
+    {
+      "no": "03",
+      "title": "招募新創開發",
+      "description": "依題目招募新創投入開發，AIDA 提供加速輔導與資源。"
+    },
+    {
+      "no": "04",
+      "title": "輔導量產與出場",
+      "description": "輔導新創走到量產，挺立資本負責資本端，協助新創出場。"
+    }
+  ],
+  "venues": [
+    {
+      "name": "台中會議中心",
+      "summary": "會議室、茶水吧檯與閱覽室，適合會議與日常工作。",
+      "address": "407臺中市西屯區何源里河南路一段170號5樓-3",
+      "capacity": "10–15 人",
+      "hours": "平日（週一至週五）09:00–17:30"
+    },
+    {
+      "name": "升暘聚場",
+      "summary": "獨棟玻璃帷幕場館與多功能教室，適合課程與交流活動。",
+      "address": "428臺中市大雅區橫山里永和路124號",
+      "capacity": "20–30 人",
+      "hours": "24 小時營業"
+    }
+  ],
+  "news": [
+    {
+      "date": "2026-10-27",
+      "category": "活動",
+      "title": "AIDA 加速器平台正式啟動",
+      "url": "/news/aida-launch/",
+      "sample": true
+    },
+    {
+      "date": "2026-10-15",
+      "category": "課程",
+      "title": "升暘聚場國防科技系列課程開放報名",
+      "url": "/news/deftech-course-series/",
+      "sample": true
+    },
+    {
+      "date": "2026-10-02",
+      "category": "國際合作",
+      "title": "AIDA 與歐洲加速器展開交流",
+      "url": "/news/europe-accelerator-exchange/",
+      "sample": true
+    }
+  ],
+  "faq": [
+    {
+      "q": "AIDA 是什麼？",
+      "a": "AIDA（AI DefTech Accelerator）是由挺立資本投資營運的 AI 國防科技加速器，將軍方實際需求整理成題目，結合 AI 算力、專利、會計與上市顧問資源，輔導新創開發市場需要的軍工產品。",
+      "todo": "主管確認"
+    },
+    {
+      "q": "什麼是 AIDA 的題目？",
+      "a": "題目是 AIDA 把軍方實際需求整理成的問題分析，新創依題目開發產品。"
+    },
+    {
+      "q": "AIDA 如何運作？",
+      "a": "需求來自軍方與海外。AIDA 把實際需求整理成可落實的題目，招募新創依題目開發——不是新創想做什麼就做什麼，而是做市場真正需要的。"
+    }
+  ]
+}

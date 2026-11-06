@@ -1,129 +1,264 @@
+/* AIDA 官網樣式進入點（Tailwind CSS v4）
+ * - 品牌 design tokens 集中在 @theme，HTML 用 Tailwind utility（如 bg-ink、text-accent）。
+ * - 重複出現、或需要 :hover / 動畫的區塊寫成 aida- 前綴的元件 class，色碼一律引用 token。
+ */
 @import "tailwindcss";
 
-/*
- * 設計 tokens（CSS variables）集中寫在這裡，對應首頁橘／黑／白配色方向：
- * 白底為主的畫布、深墨黑導覽與內文、單一飽和橘做強調色與滿版色塊，
- * 搭配斜體大字、描邊填色動畫與像素溶解轉場。
- * 其他頁面與元件一律沿用這裡的變數，不要散落各處自訂色碼。
- */
+@source "../pages";
+@source "../partials";
+@source "../root/assets/js";
+
 @theme {
-  --color-ink: #0c1222;
-  --color-sub: #5b6472;
-  --color-line: #e8eaee;
+  /* 色彩 */
+  --color-ink: #0E0D0C;          /* 主要深色底 */
+  --color-ink-2: #1B1A18;        /* 圖片預留底色 */
+  --color-ink-3: #232120;
+  --color-paper: #F6F4F0;        /* 主要淺色底、深底上的文字 */
+  --color-paper-2: #E9E5DF;
+  --color-accent: #F26A1B;       /* 品牌橘 */
+  --color-accent-deep: #C24E0C;  /* 淺底上的橘色文字（對比較足） */
+  --color-line-dark: #2A2826;    /* 深底分隔線 */
+  --color-line-dark-2: #3A3734;
+  --color-line-light: #D8D4CD;   /* 淺底分隔線 */
+  --color-muted: #B5B0A8;        /* 深底次要文字 */
+  --color-muted-2: #9A958E;
+  --color-muted-3: #7A766F;
+  --color-muted-4: #55514C;
+  --color-body-light: #57534E;   /* 淺底內文 */
+  --color-meta: #6E6A64;         /* 淺底日期、標籤 */
+  --color-meta-2: #857F77;
 
-  --color-accent-orange: #c2410c;
+  /* 字體 */
+  --font-sans: "Noto Sans TC", system-ui, sans-serif;
+  --font-display: "Archivo", "Noto Sans TC", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-  --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+  /* 動態 */
+  --ease-soft: cubic-bezier(.2, .7, .2, 1);
 }
 
-::selection {
-  background: var(--color-accent-orange);
-  color: #fff;
+/* ---------- Base ---------- */
+@layer base {
+  html { background: var(--color-ink); scroll-behavior: smooth; scroll-padding-top: 80px; /* 錨點跳轉時避開 sticky header */ }
+  body {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: var(--color-accent); }
+  img { max-width: none; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 }
 
-:focus-visible {
-  outline: 2px solid var(--color-accent-orange);
-  outline-offset: 2px;
+/* ---------- Components ---------- */
+@layer components {
+  /* 版面容器 */
+  .aida-container { max-width: 1440px; margin-inline: auto; padding-inline: clamp(20px, 4vw, 56px); }
+  .aida-band { padding-block: clamp(112px, 14vw, 200px); }
+  .aida-skip {
+    position: absolute; left: 16px; top: -100px; z-index: 50;
+    background: var(--color-accent); color: var(--color-ink); padding: 10px 16px; font-weight: 700;
+  }
+  .aida-skip:focus { top: 12px; }
+
+  /* 文字樣式 */
+  .aida-eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: .1em; }
+  .aida-h2 { font-size: clamp(32px, 4.4vw, 60px); font-weight: 900; line-height: 1.15; }
+  .aida-h2--sub { font-size: clamp(28px, 3.4vw, 48px); }
+  .aida-display { font-family: var(--font-display); font-weight: 900; letter-spacing: -.04em; line-height: .9; }
+
+  /* 動態共用 */
+  .aida-tr {
+    transition: color .35s var(--ease-soft), background-color .35s var(--ease-soft),
+      border-color .35s var(--ease-soft), padding .45s var(--ease-soft), gap .35s var(--ease-soft),
+      transform .35s var(--ease-soft), box-shadow .35s var(--ease-soft), opacity .35s;
+  }
+
+  /* 膠囊按鈕 */
+  .aida-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    border-radius: 999px; font-weight: 700; padding: 16px 26px;
+    transition: color .35s var(--ease-soft), background-color .35s var(--ease-soft),
+      border-color .35s var(--ease-soft), transform .35s var(--ease-soft), box-shadow .35s var(--ease-soft);
+  }
+  .aida-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 0, 0, .22); }
+  .aida-btn--sm { padding: 14px 24px; }
+  .aida-btn--accent { background: var(--color-accent); color: var(--color-ink); }
+  .aida-btn--accent:hover { background: var(--color-paper); color: var(--color-ink); }
+  .aida-btn--accent-on-light:hover { background: var(--color-ink); color: var(--color-paper); }
+  .aida-btn--ghost-dark { border: 1px solid var(--color-paper); color: var(--color-paper); }
+  .aida-btn--ghost-dark:hover { background: var(--color-paper); color: var(--color-ink); }
+  .aida-btn--ghost-light { border: 1px solid var(--color-ink); color: var(--color-ink); }
+  .aida-btn--ghost-light:hover { background: var(--color-ink); color: var(--color-paper); }
+  .aida-btn--ink { background: var(--color-ink); color: var(--color-paper); }
+  .aida-btn--ink:hover { background: var(--color-paper); color: var(--color-ink); }
+
+  /* 底線文字連結（箭頭往右推） */
+  .aida-link {
+    display: inline-flex; align-items: center; gap: 10px; align-self: flex-start;
+    font-weight: 700; padding-bottom: 4px; border-bottom: 2px solid currentColor;
+    transition: color .35s var(--ease-soft), border-color .35s var(--ease-soft), gap .35s var(--ease-soft);
+  }
+  .aida-link:hover { gap: 18px; }
+  .aida-link--on-light:hover { color: var(--color-accent-deep); }
+
+  /* 選單：底線由左往右長出 */
+  .aida-navlink {
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    padding-bottom: 3px;
+    transition: color .35s, background-size .4s var(--ease-soft);
+  }
+  .aida-navlink:hover { background-size: 100% 1px; }
+
+  /* 頁首：往下捲時收起 */
+  .aida-header { transition: transform .5s var(--ease-soft); }
+  .aida-header.is-hidden { transform: translateY(-100%); }
+
+  /* ---------- Hero：左文右圖，45 度斜角分界（方向對應 logo 的「/」） ---------- */
+  .aida-hero { position: relative; overflow: hidden; background: var(--color-ink); height: 1000px; }
+  /* 圖片左緣對齊斜角面板的底角（50% − 高度/2），再往左多 20px 藏在面板下，避免左下角露出空白 */
+  .aida-hero__media { position: absolute; inset: 0 0 0 max(0px, calc(50% - 520px)); }
+  .aida-hero__slide {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transform: scale(1.08);
+    transition: opacity 1.2s var(--ease-soft), transform 7s linear;
+  }
+  .aida-hero__slide.is-active { opacity: 1; transform: scale(1); }
+  .aida-hero__slide--quadruped { object-position: 0% 50%; }
+  .aida-hero__slide--uav { object-position: 8% 50%; }
+  .aida-hero__slide--network { object-position: 47% 50%; }
+  .aida-hero__slide--aihead { object-position: 0% 40%; }
+  .aida-hero__panel, .aida-hero__fade {
+    position: absolute; top: 0; bottom: 0; pointer-events: none;
+    transform: skewX(-45deg); transform-origin: 50% 50%;
+  }
+  .aida-hero__panel { left: -80%; right: 50%; background: var(--color-ink); }
+  .aida-hero__fade {
+    left: calc(50% - 1px); width: 32%;
+    background: linear-gradient(90deg, rgba(14, 13, 12, 1) 0%, rgba(14, 13, 12, .88) 18%,
+      rgba(14, 13, 12, .6) 42%, rgba(14, 13, 12, .28) 68%, rgba(14, 13, 12, .08) 88%, rgba(14, 13, 12, 0) 100%);
+  }
+  .aida-hero__content {
+    position: relative; z-index: 2; height: 100%; display: flex; align-items: center;
+    padding: clamp(40px, 5vw, 72px) 0 clamp(40px, 5vw, 72px) clamp(24px, 12vw, 240px);
+  }
+  .aida-hero__copy {
+    width: min(100%, 48%); display: flex; flex-direction: column; gap: 28px;
+    text-shadow: 0 2px 18px rgba(14, 13, 12, .55);
+  }
+  .aida-hero__dots { position: absolute; z-index: 3; right: clamp(20px, 4vw, 56px); bottom: 32px; display: flex; gap: 10px; }
+  .aida-hero__dot {
+    width: 28px; height: 4px; padding: 0; border: 0; border-radius: 2px; cursor: pointer;
+    background: rgba(246, 244, 240, .45);
+    transition: width .4s var(--ease-soft), background-color .3s;
+  }
+  .aida-hero__dot:hover { background: rgba(246, 244, 240, .8); }
+  .aida-hero__dot.is-active { width: 56px; background: var(--color-accent); }
+
+  @media (max-width: 1100px) {
+    .aida-hero { height: auto; display: flex; flex-direction: column; }
+    .aida-hero__panel, .aida-hero__fade { display: none; }
+    .aida-hero__content { height: auto; padding: clamp(40px, 8vw, 64px) 20px 40px; }
+    .aida-hero__copy { width: 100%; }
+    .aida-hero__media {
+      position: relative; inset: auto; height: 62vw; max-height: 520px;
+      clip-path: polygon(56px 0, 100% 0, 100% 100%, 0 100%, 0 56px);
+    }
+    .aida-hero__slide--quadruped { object-position: 45% 50%; }
+    .aida-hero__slide--uav { object-position: 50% 50%; }
+    .aida-hero__slide--network { object-position: 55% 55%; }
+    .aida-hero__slide--aihead { object-position: 40% 35%; }
+    .aida-hero__dots { bottom: 20px; }
+  }
+
+  /* ---------- 列表列（題目、新聞）：箭頭往右滑 ---------- */
+  .aida-row { transition: color .35s var(--ease-soft), padding .45s var(--ease-soft); }
+  .aida-row__arrow { display: inline-block; transition: transform .4s var(--ease-soft); }
+  .aida-row:hover .aida-row__arrow { transform: translateX(10px); }
+  .aida-row--challenge:hover { color: var(--color-accent-deep); padding-left: 16px; }
+  .aida-row--news:hover { color: var(--color-accent-deep); }
+
+  /* ---------- 服務卡片：黑底，hover 轉橘底 ---------- */
+  .aida-svc__card {
+    background: var(--color-ink); color: var(--color-paper);
+    transition: transform .45s var(--ease-soft), box-shadow .45s var(--ease-soft),
+      background-color .4s var(--ease-soft), color .4s;
+  }
+  .aida-svc__card * { transition: color .4s, border-color .4s; }
+  .aida-svc__card:hover {
+    background: var(--color-accent); color: var(--color-ink);
+    transform: translateY(-8px); box-shadow: 0 18px 40px rgba(0, 0, 0, .22);
+  }
+  .aida-svc__card:hover :is(h3, p, a, span) { color: var(--color-ink); border-color: var(--color-ink); }
+
+  /* ---------- 案例：三欄瀑布式錯位，中間欄下移 ---------- */
+  .aida-cases {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: clamp(24px, 3vw, 48px); row-gap: clamp(56px, 6vw, 88px); align-items: start;
+  }
+  .aida-cases__item:nth-child(3n+2) { margin-top: clamp(64px, 8vw, 120px); }
+  .aida-cases__media { transition: transform .5s var(--ease-soft), border-color .35s; }
+  .aida-cases__link:hover .aida-cases__media { transform: translateY(-8px); border-color: var(--color-accent); }
+  .aida-cases__link:hover { color: var(--color-accent); }
+  .aida-cases__arrow { display: inline-block; transition: transform .4s var(--ease-soft); }
+  .aida-cases__link:hover .aida-cases__arrow { transform: translateX(10px); }
+  @media (max-width: 900px) {
+    .aida-cases { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .aida-cases__item:nth-child(3n+2) { margin-top: 0; }
+    .aida-cases__item:nth-child(2n) { margin-top: clamp(48px, 8vw, 80px); }
+  }
+  @media (max-width: 600px) {
+    .aida-cases { grid-template-columns: 1fr; }
+    .aida-cases__item:nth-child(n) { margin-top: 0; }
+  }
+  .aida-placeholder {
+    background: repeating-linear-gradient(135deg, var(--color-ink-2) 0 12px, var(--color-ink-3) 12px 24px);
+  }
+
+  /* ---------- 合作廠商跑馬燈 ---------- */
+  .aida-partners {
+    overflow: hidden; border-block: 1px solid var(--color-line-dark);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .aida-partners__track { display: flex; width: max-content; animation: aida-partners 40s linear infinite; }
+  .aida-partners:hover .aida-partners__track { animation-play-state: paused; }
+  .aida-partners__row { display: flex; flex-shrink: 0; }
+  .aida-partners__logo {
+    width: clamp(160px, 14vw, 220px); height: clamp(88px, 7vw, 112px); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-right: 1px solid var(--color-line-dark);
+    font-family: var(--font-mono); font-size: 12px; color: var(--color-muted-4); transition: color .35s;
+  }
+  .aida-partners__logo:hover { color: var(--color-paper); }
+
+  /* ---------- 圖片框（場域、案例、論壇封面） ---------- */
+  .aida-frame { overflow: hidden; border-radius: 4px; border: 1px solid var(--color-line-dark); transition: border-color .35s; }
+  .aida-figure:hover .aida-frame { border-color: var(--color-accent); }
+  .aida-figure__title { transition: color .35s; }
+  .aida-figure:hover .aida-figure__title { color: var(--color-accent); }
+  .aida-parallax-img { width: 100%; height: 100%; object-fit: cover; display: block; transform: scale(1.18); will-change: transform; }
+
+  /* ---------- 夥伴角色卡片 ---------- */
+  .aida-role { background: var(--color-accent); transition: background-color .35s var(--ease-soft), color .35s; }
+  .aida-role:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  /* ---------- 論壇分類標籤 ---------- */
+  .aida-tag {
+    display: block; border: 1px solid var(--color-ink); border-radius: 999px; padding: 6px 14px;
+    font-size: 13px; font-weight: 500;
+    transition: color .35s var(--ease-soft), background-color .35s var(--ease-soft), transform .35s var(--ease-soft);
+  }
+  .aida-tag:hover { background: var(--color-ink); color: var(--color-paper); transform: translateY(-2px); }
 }
 
-/*
- * 斜體傾斜：中文字沒有義大利體，用 skewX 做出傾斜效果，
- * 用於大字標題與 wordmark，營造「科技、有活力」的氛圍。
- */
-.skew-italic {
-  display: inline-block;
-  transform: skewX(-6deg);
-}
-
-/*
- * 轉場：一片像素方塊做像素溶解效果，捲動進入畫面時隨機時間差消散，
- * 作為 hero 與下方內容之間的裝飾性過場。純裝飾用途，不承載內容；
- * JS 不存在時方塊預設不渲染，不影響可讀性。
- */
-.pixel-grid {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  pointer-events: none;
-}
-
-.pixel-grid span {
-  background: var(--color-accent-orange);
-  opacity: 1;
-  transform: scale(1);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
-  transition-delay: var(--d, 0ms);
-}
-
-.pixel-grid.is-visible span {
-  opacity: 0;
-  transform: scale(0);
-}
+@keyframes aida-partners { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .pixel-grid span {
-    transition: none;
-  }
-}
-
-/*
- * 描邊填色大字：先是空心字，捲動時由左至右「填滿」，呼應參考站的
- * 標題填色動畫手法。base 層的描邊用淺灰，fill 層用實色，兩者要有
- * 明顯對比，否則填色過程看不出來。
- */
-.outline-fill {
-  position: relative;
-  display: inline-block;
-}
-
-.outline-fill .base {
-  -webkit-text-stroke: 2px #c7cbd6;
-  color: transparent;
-}
-
-.outline-fill .fill {
-  position: absolute;
-  inset: 0;
-  color: currentColor;
-  /* 預設全填滿（無 JS 時保證內容可見）；JS 就緒後在 updateFill() 裡依捲動位置覆寫 clip-path。 */
-  clip-path: inset(0 0 0 0);
-  -webkit-text-stroke: 0;
-  transition: clip-path 0.2s linear;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .outline-fill .fill {
-    clip-path: inset(0 0 0 0) !important;
-    transition: none;
-  }
-}
-
-/*
- * 捲動進場效果：預設可見（無 JS 時不受影響），JS 就緒後才轉為「淡入＋上移」，
- * 搭配 IntersectionObserver 依序觸發；reduced-motion 時維持可見、不做位移。
- */
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  body.js-ready .reveal {
-    opacity: 0;
-    transform: translateY(14px);
-    transition:
-      opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: var(--reveal-delay, 0ms);
-  }
-
-  body.js-ready .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-  }
+  .aida-hero__slide { transition: opacity .01ms; transform: none; }
+  .aida-partners__track { animation: none; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
 }

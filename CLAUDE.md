@@ -26,7 +26,7 @@
 |---|---|---|
 | 本網站品牌 | AIDA | 全名 AI DefTech Accelerator（官方英文全名） |
 | AIDA 背後的資本公司 | 挺立資本 | 原網站名稱，現已更名為 AIDA |
-| 場地 | 升暘劇場 | |
+| 場地 | 升暘聚場 | |
 | SRA | 升暘科技 | **是** AIDA 平台成員 |
 | PT | 源昇整合方案智財 | **不是** AIDA 平台成員，不可列入成員名單 |
 | PB | Playback | 屬升暘科技；優先順序很後面，目前不放上網站 |
@@ -39,7 +39,7 @@
 ### 跨站資訊一致（GEO 重點）
 
 - 「關於我們」「聯絡我們」「服務」內容必須與 PT 網站上的挺立資本資料一致，不可各說一套。
-- 公司地址一律寫**台中會議中心**；升暘劇場**不寫地址**，只說明可供課程、論壇使用。
+- 公司地址一律寫**台中會議中心**；升暘聚場不需寫地址，目前沒有強制（可供課程、論壇使用）。
 - AIDA 的每一句定義句與服務說明，需經主管確認含義後才可上線；未確認的內容標註 `<!-- TODO: 主管確認 -->`。
 
 ## 網站架構（頁面清單）
@@ -84,12 +84,12 @@
 
 ### 6. 會員方案 `/membership/`
 - 新創須付費加入，不免費提供
-- 暫定方案：每月 5 萬元，可全額折抵會議室、升暘劇場、會計師諮詢、上市諮詢等資源，並享 8 折
+- 暫定方案：每月 5 萬元，可全額折抵會議室、升暘聚場、會計師諮詢、上市諮詢等資源，並享 8 折
 - ⚠️ 價格與折抵範圍**尚未確認**，相關文字全部標註 `<!-- TODO: 主管確認 -->`，確認前不可上線
 
 ### 7. 場域 `/venues/`
 - 台中會議中心：會議室、可上課、可作公司登記地址（**網站上的公司地址寫這裡**）
-- 升暘劇場：課程與論壇使用，**不寫地址**；升暘劇場有自己的網站，可連結過去
+- 升暘聚場：課程與論壇使用，不需寫地址，目前沒有強制；升暘聚場有自己的網站，可連結過去
 - 使用場地需預約；預約系統由多家公司共用，串接方式規劃中，第一版先放洽詢方式
 
 ### 8. 論壇 `/forum/`
@@ -158,7 +158,7 @@
 - 使用 JSON-LD（schema.org）標記：
   - 全站：`Organization`（`name` 為 AIDA，`alternateName` 為 AI DefTech Accelerator，並註明與挺立資本的關係；含 logo、聯絡方式、`sameAs` 連結）、`WebSite`
   - 服務頁：`Service`；會員方案：`Offer`（價格確認後才加）
-  - 場域：`Place`（台中會議中心含地址；升暘劇場不放地址）
+  - 場域：`Place`（台中會議中心含地址；升暘聚場不需寫地址，目前沒有強制）
   - 論壇：`Article`；新聞：`NewsArticle`；課程與論壇活動：`Event`
   - 各頁：`BreadcrumbList`；有問答區塊時：`FAQPage`
 - 結構化資料內容必須與頁面上可見的文字一致。
@@ -278,11 +278,13 @@ slug 是網址中代表該頁的那一段英文（例如 `/membership/` 中的 `
 src/
   pages/            來源頁面（結構對應最終網址，例如 src/pages/about/index.html → /about/）
                     英文版放在 src/pages/en/ 底下，結構與中文版對應
-  partials/         共用元件：header.zh.html / nav.zh.html / footer.zh.html
-                    （及 .en.html 版本），用 <!-- include:partials/xxx.html -->
-                    在 src/pages 的頁面中引入
+  partials/         共用元件：head-common.zh.html / header.zh.html / nav.zh.html /
+                    footer.zh.html / logo.html（英文版上線後補 .en.html），
+                    用 <!-- include:partials/xxx.html --> 在 src/pages 的頁面中引入
   styles/main.css   Tailwind 進入點，品牌 design tokens 以 @theme 集中管理
-  root/              原樣複製到 dist 根目錄的檔案：robots.txt、sitemap.xml
+  data/home.json    首頁重複資料（題目、服務、步驟、場域、新聞、FAQ）
+  root/              原樣複製到 dist 根目錄的檔案：robots.txt、sitemap.xml、llms.txt、
+                    _headers、favicon、assets/js/main.js（互動效果）、assets/images/（WebP）
 scripts/build-pages.mjs   組裝 src/pages 的 include，並複製 src/root，輸出到 dist/
 dist/                建置產物（已加入 .gitignore，不進版控；Cloudflare Pages 以此為發布目錄）
 ```
@@ -334,5 +336,5 @@ Cloudflare Pages 建置設定：Build command `npm run build`，Build output dir
 - [ ] 題目清單與內容（主管提供）。
 - [ ] 會員方案：月費或年費、金額、折抵範圍、8 折適用項目（主管確認）。
 - [ ] 論壇形式：專欄文章、系列課程或互動討論；主題分類與首批內容（主管提供）。
-- [ ] 預約系統：能否串接升暘劇場現有系統。
-- [ ] 升暘劇場照片（主管提供）。
+- [ ] 預約系統：能否串接升暘聚場現有系統。
+- [ ] 升暘聚場照片（主管提供）。

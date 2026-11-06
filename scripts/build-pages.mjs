@@ -1,129 +1,85 @@
-// 組裝靜態頁面：把 src/pages 底下的 HTML 依 <!-- include:partials/xxx.html -->
-// 指示插入共用的 header / nav / footer，輸出到 dist（純字串替換，build time 執行，
-// 瀏覽器端不需要任何 JavaScript 才能看到內容）。
-// 同時把 src/root 底下的檔案（robots.txt、sitemap.xml 等）原樣複製到 dist 根目錄。
+// 組裝 src/pages 的頁面，並把 src/root 原樣複製到 dist/。
+// <!-- include:partials/xxx.html --> 在建置時做純字串替換（可巢狀），
+// 最終輸出的 HTML 已包含完整內容，不需要瀏覽器端 JavaScript。
+//
+// 用法：
+//   node scripts/build-pages.mjs          建置一次
+//   node scripts/build-pages.mjs --watch  監看 src/ 變更並重新建置
 
-import { existsSync } from "node:fs";
-import { mkdir, readdir, readFile, writeFile, copyFile } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { promises as fs, watch } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const ROOT_DIR = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const SRC_DIR = path.join(ROOT_DIR, "src");
-const PAGES_DIR = path.join(SRC_DIR, "pages");
-const PASSTHROUGH_DIR = path.join(SRC_DIR, "root");
-const OUT_DIR = path.join(ROOT_DIR, "dist");
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const SRC = path.join(ROOT, 'src');
+const PAGES = path.join(SRC, 'pages');
+const STATIC_ROOT = path.join(SRC, 'root');
+const DIST = path.join(ROOT, 'dist');
+const INCLUDE_RE = /<!--\s*include:([\w./-]+)\s*-->/g;
+const MAX_DEPTH = 10;
 
-const INCLUDE_PATTERN = /<!--\s*include:([^\s]+?)\s*-->/g;
-
-async function listHtmlFiles(dir) {
-  if (!existsSync(dir)) return [];
-  const entries = await readdir(dir, { withFileTypes: true });
-  const files = await Promise.all(
-    entries.map(async (entry) => {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) return listHtmlFiles(fullPath);
-      return entry.name.endsWith(".html") ? [fullPath] : [];
-    }),
-  );
-  return files.flat();
+async function walk(dir) {
+  const out = [];
+  let entries = [];
+  try { entries = await fs.readdir(dir, { withFileTypes: true }); } catch { return out; }
+  for (const e of entries) {
+    const full = path.join(dir, e.name);
+    if (e.isDirectory()) out.push(...(await walk(full)));
+    else out.push(full);
+  }
+  return out;
 }
 
-async function resolveIncludes(content, seenPaths) {
-  let result = content;
-  let match;
-  while ((match = INCLUDE_PATTERN.exec(result))) {
-    const includeRelPath = match[1];
-    const includeAbsPath = path.join(SRC_DIR, includeRelPath);
-    if (seenPaths.has(includeAbsPath)) {
-      throw new Error(`偵測到循環 include：${includeRelPath}`);
-    }
-    if (!existsSync(includeAbsPath)) {
-      throw new Error(`找不到要 include 的檔案：${includeRelPath}`);
-    }
-    const includeContent = await readFile(includeAbsPath, "utf8");
-    const resolvedInclude = await resolveIncludes(includeContent, new Set([...seenPaths, includeAbsPath]));
-    result = result.slice(0, match.index) + resolvedInclude + result.slice(match.index + match[0].length);
-    INCLUDE_PATTERN.lastIndex = 0;
+async function expandIncludes(html, from, depth = 0) {
+  if (depth > MAX_DEPTH) throw new Error(`include 巢狀超過 ${MAX_DEPTH} 層：${from}`);
+  const parts = [];
+  let last = 0;
+  for (const m of html.matchAll(INCLUDE_RE)) {
+    parts.push(html.slice(last, m.index));
+    const target = path.join(SRC, m[1]);
+    if (!target.startsWith(SRC + path.sep)) throw new Error(`include 路徑超出 src/：${m[1]}`);
+    let content;
+    try { content = await fs.readFile(target, 'utf8'); }
+    catch { throw new Error(`找不到 include 檔案 ${m[1]}（出現在 ${path.relative(ROOT, from)}）`); }
+    parts.push(await expandIncludes(content.replace(/\n$/, ''), target, depth + 1));
+    last = m.index + m[0].length;
   }
-  return result;
-}
-
-async function buildPages() {
-  const pageFiles = await listHtmlFiles(PAGES_DIR);
-  for (const pageFile of pageFiles) {
-    const relPath = path.relative(PAGES_DIR, pageFile);
-    const outPath = path.join(OUT_DIR, relPath);
-    const rawContent = await readFile(pageFile, "utf8");
-    const finalContent = await resolveIncludes(rawContent, new Set([pageFile]));
-    await mkdir(path.dirname(outPath), { recursive: true });
-    await writeFile(outPath, finalContent, "utf8");
-    console.log(`[build-pages] ${relPath}`);
-  }
-  if (pageFiles.length === 0) {
-    console.log("[build-pages] src/pages 目前沒有任何頁面，略過組裝。");
-  }
-  return pageFiles.length;
-}
-
-async function copyPassthroughDir(dir) {
-  const entries = await readdir(dir, { withFileTypes: true });
-  let count = 0;
-  for (const entry of entries) {
-    const srcPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      count += await copyPassthroughDir(srcPath);
-      continue;
-    }
-    const relPath = path.relative(PASSTHROUGH_DIR, srcPath);
-    const outPath = path.join(OUT_DIR, relPath);
-    await mkdir(path.dirname(outPath), { recursive: true });
-    await copyFile(srcPath, outPath);
-    console.log(`[build-pages] (root) ${relPath}`);
-    count += 1;
-  }
-  return count;
-}
-
-async function copyPassthrough() {
-  if (!existsSync(PASSTHROUGH_DIR)) return 0;
-  return copyPassthroughDir(PASSTHROUGH_DIR);
+  parts.push(html.slice(last));
+  return parts.join('');
 }
 
 async function build() {
-  const pageCount = await buildPages();
-  const passthroughCount = await copyPassthrough();
-  console.log(`[build-pages] 完成：${pageCount} 個頁面、${passthroughCount} 個根目錄檔案 -> dist/`);
-}
+  const started = Date.now();
+  // 只清掉頁面與根目錄檔案，保留 dist/assets/css（由 Tailwind CLI 產生）
+  await fs.mkdir(DIST, { recursive: true });
 
-async function watch() {
-  await build();
-  console.log("[build-pages] 監看 src/ 變更中... (Ctrl+C 結束)");
-  let pending = false;
-  const { watch: fsWatch } = await import("node:fs");
-  fsWatch(SRC_DIR, { recursive: true }, async () => {
-    if (pending) return;
-    pending = true;
-    setTimeout(async () => {
-      pending = false;
-      try {
-        await build();
-      } catch (error) {
-        console.error("[build-pages]", error.message);
-      }
-    }, 150);
-  });
-}
-
-const isWatch = process.argv.includes("--watch");
-
-try {
-  if (isWatch) {
-    await watch();
-  } else {
-    await build();
+  const pages = (await walk(PAGES)).filter((f) => f.endsWith('.html'));
+  for (const file of pages) {
+    const rel = path.relative(PAGES, file);
+    const out = path.join(DIST, rel);
+    const html = await expandIncludes(await fs.readFile(file, 'utf8'), file);
+    await fs.mkdir(path.dirname(out), { recursive: true });
+    await fs.writeFile(out, html);
   }
-} catch (error) {
-  console.error("[build-pages]", error.message);
-  process.exitCode = 1;
+
+  const statics = await walk(STATIC_ROOT);
+  for (const file of statics) {
+    const out = path.join(DIST, path.relative(STATIC_ROOT, file));
+    await fs.mkdir(path.dirname(out), { recursive: true });
+    await fs.copyFile(file, out);
+  }
+
+  console.log(`[build-pages] ${pages.length} 頁、${statics.length} 個靜態檔 → dist/（${Date.now() - started} ms）`);
+}
+
+await build();
+
+if (process.argv.includes('--watch')) {
+  let timer = null;
+  console.log('[build-pages] 監看 src/ 中…');
+  watch(SRC, { recursive: true }, (_event, name) => {
+    if (name && name.startsWith('styles')) return; // CSS 交給 Tailwind CLI
+    clearTimeout(timer);
+    timer = setTimeout(() => build().catch((err) => console.error(err.message)), 120);
+  });
 }
